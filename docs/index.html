@@ -1,1 +1,434 @@
-Hello 717 Nerf Rentals
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>717 Nerf Rentals — Nerf parties & events in the 717 area</title>
+  <meta name="description" content="717 Nerf Rentals — Nerf party packages, delivery, set-up and safe equipment across the 717 area. Perfect for birthdays, youth groups, and corporate events." />
+  <meta name="theme-color" content="#0077CC" />
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="717 Nerf Rentals" />
+  <meta property="og:description" content="Nerf party packages, delivery, set-up and safe equipment across the 717 area." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/og-image.jpg" />
+
+  <style>
+    /* ----------------------------------------
+       Bright + Exciting theme (orange + blue)
+       Mobile-first responsive CSS
+       ---------------------------------------- */
+    :root{
+      --blue:#0077CC;
+      --orange:#FF6A00;
+      --dark:#0F1724;
+      --muted:#6B7280;
+      --bg:#FBFCFE;
+      --radius:14px;
+      --container:1100px;
+      --max-width:1100px;
+      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      color:var(--dark);
+      background:linear-gradient(180deg, #FFFFFF 0%, #F7FBFF 100%);
+      -webkit-font-smoothing:antialiased;
+      -moz-osx-font-smoothing:grayscale;
+      line-height:1.45;
+      font-size:16px;
+    }
+    img{max-width:100%;height:auto;display:block}
+
+    .container{max-width:var(--container);margin:0 auto;padding:20px}
+
+    /* Header */
+    header.site-header{
+      background:transparent;
+      position:sticky;
+      top:0;
+      z-index:80;
+      backdrop-filter: blur(6px);
+      border-bottom:1px solid rgba(15,23,36,0.04);
+    }
+    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 8px}
+    .brand{display:flex;align-items:center;gap:12px}
+    .logo{
+      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--orange),var(--blue));
+      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;
+      box-shadow:0 6px 18px rgba(0,119,204,0.12);
+    }
+    .brand h1{margin:0;font-size:16px}
+    nav.nav{display:flex;gap:12px;align-items:center}
+    nav.nav a{color:var(--dark);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
+    nav.nav a.btn{display:inline-block}
+    .btn{display:inline-block;padding:10px 14px;border-radius:12px;font-weight:700;text-decoration:none;cursor:pointer}
+    .btn-primary{background:linear-gradient(90deg,var(--orange),#ff8f46);color:white;border:0}
+    .btn-outline{background:transparent;border:2px solid rgba(0,0,0,0.06);color:var(--dark)}
+
+    /* Hero */
+    .hero{padding:28px 0}
+    .hero-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
+    .hero .lead{font-size:1.05rem;color:var(--muted)}
+    .kicker{margin-top:8px;background:linear-gradient(90deg, rgba(255,106,0,0.12), rgba(0,119,204,0.08));display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;color:var(--dark)}
+
+    .hero-image{border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
+    .hero-image img{width:100%;height:100%;object-fit:cover;display:block}
+
+    /* Cards / Packages */
+    .section{padding:28px 0}
+    h3{margin-top:6px;margin-bottom:12px;font-size:1.25rem}
+    .muted{color:var(--muted);margin-bottom:12px}
+    .cards{display:grid;grid-template-columns:1fr;gap:12px}
+    .card{background:white;border-radius:14px;padding:16px;border:1px solid rgba(2,6,23,0.04);box-shadow:0 6px 20px rgba(2,6,23,0.03)}
+    .card h4{margin:0 0 8px 0}
+    .card ul{margin:8px 0 0 16px;color:var(--muted)}
+
+    .card.highlighted{border:2px solid rgba(0,119,204,0.12);transform:scale(1.01);box-shadow:0 14px 40px rgba(0,119,204,0.06)}
+
+    .note{color:var(--muted);font-size:0.95rem;margin-top:12px}
+
+    /* How / Gallery */
+    .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+    .gallery-grid img{height:150px;object-fit:cover;border-radius:10px}
+
+    /* Booking form */
+    .form{margin-top:12px;background:white;padding:14px;border-radius:14px;border:1px solid rgba(2,6,23,0.04)}
+    .form-row{display:flex;flex-direction:column;margin-bottom:10px}
+    .form-row label{font-weight:600;margin-bottom:6px}
+    .form-row input,.form-row select,.form-row textarea{
+      padding:10px;border-radius:10px;border:1px solid rgba(2,6,23,0.06);
+      font-size:1rem;outline:none;background:transparent
+    }
+    .form-grid{display:grid;grid-template-columns:1fr;gap:10px}
+    .actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
+
+    /* Footer */
+    footer.site-footer{padding:24px 0;border-top:1px solid rgba(2,6,23,0.04);margin-top:30px}
+    .footer-inner{display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center}
+
+    /* small components */
+    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff;color:var(--muted);border:1px solid rgba(2,6,23,0.03);font-weight:700}
+
+    /* Desktop layout */
+    @media(min-width:780px){
+      .hero-grid{grid-template-columns:1fr 420px;gap:26px}
+      .cards{grid-template-columns:repeat(3,1fr)}
+      .gallery-grid{grid-template-columns:repeat(4,1fr)}
+      .form-grid{grid-template-columns:repeat(2,1fr)}
+      nav.nav a{padding:10px 14px}
+      .header-inner{padding:14px 8px}
+    }
+
+    @media(min-width:1100px){
+      .container{padding:28px}
+      .hero-image{height:320px}
+    }
+
+    /* small helpers */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .muted-small{color:var(--muted);font-size:0.95rem}
+    .success{padding:12px;border-radius:12px;background:linear-gradient(90deg,#ECFDF5,#E6FFFA);border:1px solid rgba(16,185,129,0.08);color:#065F46;margin-top:10px}
+    .error{padding:12px;border-radius:12px;background:linear-gradient(90deg,#FFF1F2,#FFF3F2);border:1px solid rgba(239,68,68,0.08);color:#991B1B;margin-top:10px}
+  </style>
+
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"LocalBusiness",
+    "name":"717 Nerf Rentals",
+    "image":"https://example.com/assets/og-image.jpg",
+    "telephone":"717-376-7617",
+    "address":{
+      "@type":"PostalAddress",
+      "addressRegion":"PA"
+    },
+    "description":"Nerf rental parties, delivery, and set-up serving the 717 area. Packages for birthdays, youth groups and corporate events.",
+    "areaServed":"717",
+    "priceRange":"$"
+  }
+  </script>
+</head>
+<body>
+  <header class="site-header" role="banner">
+    <div class="container header-inner">
+      <div class="brand">
+        <!-- Simple SVG logo placeholder. Replace or edit as needed. -->
+        <div class="logo" aria-hidden="true">
+          <svg width="46" height="46" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+            <defs>
+              <linearGradient id="g" x1="0" x2="1">
+                <stop offset="0" stop-color="#FF6A00"/>
+                <stop offset="1" stop-color="#0077CC"/>
+              </linearGradient>
+            </defs>
+            <rect rx="8" width="46" height="46" fill="url(#g)"/>
+            <text x="50%" y="56%" font-size="14" font-weight="700" text-anchor="middle" fill="#fff" font-family="Inter,system-ui">717</text>
+          </svg>
+        </div>
+        <div>
+          <div style="font-weight:800;letter-spacing:0.2px">717 Nerf Rentals</div>
+          <div class="muted-small">Nerf parties • 717 area • 717-376-7617</div>
+        </div>
+      </div>
+
+      <nav class="nav" aria-label="Main navigation">
+        <a href="#packages">Packages</a>
+        <a href="#how">How it works</a>
+        <a href="#faq">FAQ</a>
+        <a href="#book" class="btn btn-primary">Book Now</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <h2 style="font-size:1.45rem;margin:0 0 8px 0">Bring the battle. We bring everything.</h2>
+          <p class="lead">Nerf blasters, barriers, darts, set-up and pick-up — perfect for birthday parties, backyard battles, youth groups, or corporate team-building across the <strong>717 area</strong>.</p>
+          <div style="margin-top:12px">
+            <span class="kicker">Starting at <strong>$99</strong></span>
+          </div>
+
+          <div class="actions" style="margin-top:14px">
+            <a href="#book" class="btn btn-primary">Book a Party</a>
+            <a href="#packages" class="btn btn-outline">See Packages</a>
+            <a href="tel:7173767617" class="btn" style="border:2px dashed rgba(0,0,0,0.06);">Call: 717-376-7617</a>
+          </div>
+
+          <p class="muted-small" style="margin-top:12px">Service area: <strong>717 area</strong> — delivery and pickup options available.</p>
+        </div>
+
+        <div class="hero-image" aria-hidden="true">
+          <!-- Replace with real image in assets/hero-nerf.jpg -->
+          <img src="assets/hero-nerf.jpg" alt="Kids and teens enjoying a backyard Nerf party" />
+        </div>
+      </div>
+    </section>
+
+    <section id="packages" class="container section" aria-labelledby="packages-title">
+      <h3 id="packages-title">Packages</h3>
+      <p class="muted">Simple pricing. Add-ons available (referee, extra darts, travel fee).</p>
+
+      <div class="cards" role="list" aria-label="Available packages">
+        <article class="card" role="listitem">
+          <h4>Starter — $99</h4>
+          <p>4 blasters • 200 darts • 4 pop-up barriers • 1-hour event (setup included)</p>
+          <ul>
+            <li>Up to 8 players</li>
+            <li>Safety goggles included</li>
+            <li>Sanitization between events</li>
+          </ul>
+        </article>
+
+        <article class="card highlighted" role="listitem">
+          <h4>Party — $169</h4>
+          <p>8 blasters • 500 darts • 8 barriers • 2-hour event (setup + teardown)</p>
+          <ul>
+            <li>Up to 16 players</li>
+            <li>Referee add-on available</li>
+            <li>Custom game modes</li>
+          </ul>
+        </article>
+
+        <article class="card" role="listitem">
+          <h4>Ultimate — $249</h4>
+          <p>12 blasters (mixed) • 1000 darts • inflatable barriers • 3-hour event</p>
+          <ul>
+            <li>Up to 30 players</li>
+            <li>Delivery & setup included within 20 miles</li>
+            <li>Great for corporate events</li>
+          </ul>
+        </article>
+      </div>
+
+      <p class="note">All packages include sanitization of gear before delivery. Travel fees may apply for locations outside the included radius.</p>
+    </section>
+
+    <section id="how" class="container section" aria-labelledby="how-title">
+      <h3 id="how-title">How it works</h3>
+      <ol>
+        <li>Choose a package and fill the booking form below.</li>
+        <li>We confirm availability and send a short rental agreement.</li>
+        <li>We deliver, set up, give a brief safety talk, and pick up after the event.</li>
+      </ol>
+    </section>
+
+    <section id="gallery" class="container section" aria-labelledby="gallery-title">
+      <h3 id="gallery-title">Gallery</h3>
+      <div class="gallery-grid" aria-hidden="false">
+        <img src="assets/thumb1.jpg" alt="Backyard Nerf battle setup" />
+        <img src="assets/thumb2.jpg" alt="Group of kids with blasters" />
+        <img src="assets/thumb3.jpg" alt="Inflatable barriers" />
+        <img src="assets/thumb4.jpg" alt="Party setup on a lawn" />
+      </div>
+    </section>
+
+    <section id="faq" class="container section" aria-labelledby="faq-title">
+      <h3 id="faq-title">FAQ</h3>
+      <div style="display:grid;gap:8px">
+        <details>
+          <summary><strong>Do you sanitize equipment?</strong></summary>
+          <p class="muted-small">Yes — all blasters and goggles are cleaned and sanitized between events.</p>
+        </details>
+
+        <details>
+          <summary><strong>Do you provide referees?</strong></summary>
+          <p class="muted-small">Yes — referee / game-moderator is an add-on during booking.</p>
+        </details>
+
+        <details>
+          <summary><strong>What about weather?</strong></summary>
+          <p class="muted-small">Outdoor events can be moved or refunded if severe weather prevents safe play — we’ll coordinate options.</p>
+        </details>
+      </div>
+    </section>
+
+    <section id="book" class="container section" aria-labelledby="book-title">
+      <h3 id="book-title">Book your event</h3>
+      <p class="muted">Fill out the form below and we’ll confirm availability within 24 hours. Or call/text: <strong>717-376-7617</strong>.</p>
+
+      <form id="bookingForm" class="form" novalidate>
+        <!-- NOTE: by default this form uses fetch to send form data to Formspree.
+             Replace FORMSPREE_ENDPOINT with your own Formspree or backend endpoint.
+             Example Formspree action: https://formspree.io/f/yourFormId
+        -->
+        <input type="hidden" id="source" name="source" value="Website - 717 Nerf Rentals" />
+        <div class="form-grid">
+          <div class="form-row">
+            <label for="name">Contact name *</label>
+            <input id="name" name="name" required placeholder="Jane Doe" />
+          </div>
+
+          <div class="form-row">
+            <label for="email">Email *</label>
+            <input id="email" name="email" type="email" required placeholder="name@example.com" />
+          </div>
+
+          <div class="form-row">
+            <label for="phone">Phone</label>
+            <input id="phone" name="phone" inputmode="tel" placeholder="717-555-1234" />
+          </div>
+
+          <div class="form-row">
+            <label for="date">Event date *</label>
+            <input id="date" name="date" type="date" required />
+          </div>
+
+          <div class="form-row">
+            <label for="time">Start time</label>
+            <input id="time" name="time" type="time" />
+          </div>
+
+          <div class="form-row">
+            <label for="packageSelect">Package *</label>
+            <select id="packageSelect" name="package" required>
+              <option value="">Choose a package</option>
+              <option>Starter — $99</option>
+              <option>Party — $169</option>
+              <option>Ultimate — $249</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <label for="players">Estimated players</label>
+            <input id="players" name="players" type="number" min="1" max="300" />
+          </div>
+
+          <div class="form-row" style="grid-column:1 / -1">
+            <label for="notes">Notes / Address / Questions</label>
+            <textarea id="notes" name="notes" rows="3" placeholder="Event address, special instructions, add-ons"></textarea>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px">
+          <button type="submit" class="btn btn-primary">Request Booking</button>
+          <a href="tel:7173767617" class="btn" style="border:1px solid rgba(0,0,0,0.06)">Call: 717-376-7617</a>
+          <div id="formFeedback" aria-live="polite" style="flex:1"></div>
+        </div>
+      </form>
+
+      <p class="note" style="margin-top:12px">By submitting you agree to receive confirmation and communications about your booking. We serve the 717 area; travel fees may apply outside standard radius.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
+        <div style="font-weight:800">717 Nerf Rentals</div>
+        <div class="muted-small">Serving the 717 area • Call/Text: <strong>717-376-7617</strong></div>
+      </div>
+      <div class="muted-small">© <span id="year"></span> 717 Nerf Rentals — All rights reserved</div>
+    </div>
+  </footer>
+
+  <script>
+    // Simple form submission handler using Fetch -> Formspree (or other endpoint)
+    // Replace FORMSPREE_ENDPOINT with your own endpoint.
+    (function(){
+      const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // <-- REPLACE THIS
+      const form = document.getElementById('bookingForm');
+      const feedback = document.getElementById('formFeedback');
+      const yearEl = document.getElementById('year');
+      yearEl.textContent = new Date().getFullYear();
+
+      function showMessage(message, type){
+        feedback.innerHTML = '<div class="'+(type==='error'?'error':'success')+'">'+message+'</div>';
+      }
+
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        feedback.innerHTML = '';
+
+        // Basic client-side validation
+        const name = form.name.value.trim();
+        const email = form.email.value.trim();
+        const date = form.date.value;
+        const pkg = form.package ? form.package.value : form.packageSelect.value;
+
+        if(!name || !email || !date || !pkg){
+          showMessage('Please complete all required fields (name, email, event date, package).', 'error');
+          return;
+        }
+
+        const data = new FormData(form);
+
+        // If user did not replace the endpoint, we show a helpful message and still simulate success.
+        if(FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')){
+          // Provide a fallback: show the submission contents so you can copy/paste
+          const summary = Array.from(data.entries()).map(([k,v])=>`<strong>${k}:</strong> ${v}`).join('<br>');
+          showMessage('Demo mode — form not sent. Replace <code>FORMSPREE_ENDPOINT</code> in the HTML with your Formspree endpoint to enable sending.<br><br>' + summary, 'success');
+          return;
+        }
+
+        // Send to Formspree (or other endpoint) via Fetch
+        fetch(FORMSPREE_ENDPOINT, {
+          method:'POST',
+          body: data,
+          headers: {
+            'Accept': 'application/json'
+          }
+        })
+        .then(response => response.json())
+        .then(json => {
+          // Formspree returns an 'ok' or errors object
+          if(json.ok || json.success || json.success === true){
+            form.reset();
+            showMessage('Thanks — your booking request was sent. We will contact you shortly to confirm availability.', 'success');
+            window.scrollTo({top:0,behavior:'smooth'});
+          } else {
+            showMessage('There was an issue submitting the form. Please call or text 717-376-7617.', 'error');
+          }
+        })
+        .catch(err => {
+          console.error(err);
+          showMessage('Network error while sending form. Please call or text 717-376-7617.', 'error');
+        });
+      });
+    })();
+  </script>
+</body>
+</html>
