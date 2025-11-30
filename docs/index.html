@@ -1,434 +1,599 @@
 <!doctype html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>717 Nerf Rentals — Nerf parties & events in the 717 area</title>
-  <meta name="description" content="717 Nerf Rentals — Nerf party packages, delivery, set-up and safe equipment across the 717 area. Perfect for birthdays, youth groups, and corporate events." />
-  <meta name="theme-color" content="#0077CC" />
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="717 Nerf Rentals" />
-  <meta property="og:description" content="Nerf party packages, delivery, set-up and safe equipment across the 717 area." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/og-image.jpg" />
-
-  <style>
-    /* ----------------------------------------
-       Bright + Exciting theme (orange + blue)
-       Mobile-first responsive CSS
-       ---------------------------------------- */
-    :root{
-      --blue:#0077CC;
-      --orange:#FF6A00;
-      --dark:#0F1724;
-      --muted:#6B7280;
-      --bg:#FBFCFE;
-      --radius:14px;
-      --container:1100px;
-      --max-width:1100px;
-      font-family:Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    html,body{height:100%}
-    body{
-      margin:0;
-      color:var(--dark);
-      background:linear-gradient(180deg, #FFFFFF 0%, #F7FBFF 100%);
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      line-height:1.45;
-      font-size:16px;
-    }
-    img{max-width:100%;height:auto;display:block}
-
-    .container{max-width:var(--container);margin:0 auto;padding:20px}
-
-    /* Header */
-    header.site-header{
-      background:transparent;
-      position:sticky;
-      top:0;
-      z-index:80;
-      backdrop-filter: blur(6px);
-      border-bottom:1px solid rgba(15,23,36,0.04);
-    }
-    .header-inner{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:12px 8px}
-    .brand{display:flex;align-items:center;gap:12px}
-    .logo{
-      width:56px;height:56px;border-radius:10px;background:linear-gradient(135deg,var(--orange),var(--blue));
-      display:flex;align-items:center;justify-content:center;color:white;font-weight:700;font-size:18px;
-      box-shadow:0 6px 18px rgba(0,119,204,0.12);
-    }
-    .brand h1{margin:0;font-size:16px}
-    nav.nav{display:flex;gap:12px;align-items:center}
-    nav.nav a{color:var(--dark);text-decoration:none;padding:8px 12px;border-radius:8px;font-weight:600}
-    nav.nav a.btn{display:inline-block}
-    .btn{display:inline-block;padding:10px 14px;border-radius:12px;font-weight:700;text-decoration:none;cursor:pointer}
-    .btn-primary{background:linear-gradient(90deg,var(--orange),#ff8f46);color:white;border:0}
-    .btn-outline{background:transparent;border:2px solid rgba(0,0,0,0.06);color:var(--dark)}
-
-    /* Hero */
-    .hero{padding:28px 0}
-    .hero-grid{display:grid;grid-template-columns:1fr;gap:18px;align-items:center}
-    .hero .lead{font-size:1.05rem;color:var(--muted)}
-    .kicker{margin-top:8px;background:linear-gradient(90deg, rgba(255,106,0,0.12), rgba(0,119,204,0.08));display:inline-block;padding:6px 10px;border-radius:999px;font-weight:700;color:var(--dark)}
-
-    .hero-image{border-radius:16px;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.06)}
-    .hero-image img{width:100%;height:100%;object-fit:cover;display:block}
-
-    /* Cards / Packages */
-    .section{padding:28px 0}
-    h3{margin-top:6px;margin-bottom:12px;font-size:1.25rem}
-    .muted{color:var(--muted);margin-bottom:12px}
-    .cards{display:grid;grid-template-columns:1fr;gap:12px}
-    .card{background:white;border-radius:14px;padding:16px;border:1px solid rgba(2,6,23,0.04);box-shadow:0 6px 20px rgba(2,6,23,0.03)}
-    .card h4{margin:0 0 8px 0}
-    .card ul{margin:8px 0 0 16px;color:var(--muted)}
-
-    .card.highlighted{border:2px solid rgba(0,119,204,0.12);transform:scale(1.01);box-shadow:0 14px 40px rgba(0,119,204,0.06)}
-
-    .note{color:var(--muted);font-size:0.95rem;margin-top:12px}
-
-    /* How / Gallery */
-    .gallery-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
-    .gallery-grid img{height:150px;object-fit:cover;border-radius:10px}
-
-    /* Booking form */
-    .form{margin-top:12px;background:white;padding:14px;border-radius:14px;border:1px solid rgba(2,6,23,0.04)}
-    .form-row{display:flex;flex-direction:column;margin-bottom:10px}
-    .form-row label{font-weight:600;margin-bottom:6px}
-    .form-row input,.form-row select,.form-row textarea{
-      padding:10px;border-radius:10px;border:1px solid rgba(2,6,23,0.06);
-      font-size:1rem;outline:none;background:transparent
-    }
-    .form-grid{display:grid;grid-template-columns:1fr;gap:10px}
-    .actions{margin-top:12px;display:flex;gap:10px;flex-wrap:wrap}
-
-    /* Footer */
-    footer.site-footer{padding:24px 0;border-top:1px solid rgba(2,6,23,0.04);margin-top:30px}
-    .footer-inner{display:flex;flex-direction:column;gap:12px;align-items:center;justify-content:center}
-
-    /* small components */
-    .pill{display:inline-block;padding:6px 10px;border-radius:999px;background:#fff;color:var(--muted);border:1px solid rgba(2,6,23,0.03);font-weight:700}
-
-    /* Desktop layout */
-    @media(min-width:780px){
-      .hero-grid{grid-template-columns:1fr 420px;gap:26px}
-      .cards{grid-template-columns:repeat(3,1fr)}
-      .gallery-grid{grid-template-columns:repeat(4,1fr)}
-      .form-grid{grid-template-columns:repeat(2,1fr)}
-      nav.nav a{padding:10px 14px}
-      .header-inner{padding:14px 8px}
-    }
-
-    @media(min-width:1100px){
-      .container{padding:28px}
-      .hero-image{height:320px}
-    }
-
-    /* small helpers */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .muted-small{color:var(--muted);font-size:0.95rem}
-    .success{padding:12px;border-radius:12px;background:linear-gradient(90deg,#ECFDF5,#E6FFFA);border:1px solid rgba(16,185,129,0.08);color:#065F46;margin-top:10px}
-    .error{padding:12px;border-radius:12px;background:linear-gradient(90deg,#FFF1F2,#FFF3F2);border:1px solid rgba(239,68,68,0.08);color:#991B1B;margin-top:10px}
-  </style>
-
-  <script type="application/ld+json">
-  {
-    "@context":"https://schema.org",
-    "@type":"LocalBusiness",
-    "name":"717 Nerf Rentals",
-    "image":"https://example.com/assets/og-image.jpg",
-    "telephone":"717-376-7617",
-    "address":{
-      "@type":"PostalAddress",
-      "addressRegion":"PA"
-    },
-    "description":"Nerf rental parties, delivery, and set-up serving the 717 area. Packages for birthdays, youth groups and corporate events.",
-    "areaServed":"717",
-    "priceRange":"$"
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Playzone Party Rentals — Central PA Yard Games</title>
+<meta name="description" content="Playzone Party Rentals — Backyard & yard game rentals across Central PA. Based in Palmyra (17078). Phone: 717-376-7617" />
+<style>
+  :root{
+    --blue: #0b63d8;
+    --lime: #9be21d;
+    --white: #ffffff;
+    --dark: #0b1530;
+    --muted: #6b7280;
+    --card: #f7fbff;
+    --radius: 14px;
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
-  </script>
+  *{box-sizing:border-box}
+  body{margin:0;background:linear-gradient(180deg,#f3f7ff,#ffffff);color:var(--dark);-webkit-font-smoothing:antialiased}
+  .container{max-width:1100px;margin:0 auto;padding:18px}
+
+  /* Header */
+  header.site-header{
+    background:linear-gradient(90deg,var(--blue), #2a9df4);
+    color:var(--white);
+    padding:22px 18px;
+    border-bottom:6px solid rgba(11,99,216,0.12);
+  }
+  .top{
+    display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap;max-width:1100px;margin:0 auto;
+  }
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo-wrap{width:78px;height:78px;border-radius:16px;background:linear-gradient(135deg,var(--blue),#1785ff);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(11,99,216,0.12)}
+  .brand h1{margin:0;font-size:1.45rem;letter-spacing:0.4px}
+  .tag{font-weight:600;color:rgba(255,255,255,0.95);font-size:0.95rem}
+
+  nav{display:flex;gap:10px;align-items:center}
+  a.cta{background:var(--lime);color:var(--dark);font-weight:800;padding:10px 14px;border-radius:12px;text-decoration:none}
+
+  /* Hero */
+  .hero{display:grid;grid-template-columns:1fr;gap:18px;align-items:center;padding:28px 0}
+  .hero-left h2{margin:0;font-size:1.8rem;color:#02143a}
+  .lead{color:var(--muted);margin-top:8px}
+  .badges{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .pill{background:var(--card);padding:8px 10px;border-radius:999px;font-weight:700;color:var(--blue)}
+
+  /* Cards */
+  .grid{display:grid;grid-template-columns:1fr;gap:12px}
+  .card{background:white;border-radius:14px;padding:16px;border:1px solid rgba(11,21,48,0.04);box-shadow:0 8px 24px rgba(11,21,48,0.04)}
+  .card.highlight{border:2px solid rgba(155,226,29,0.14);transform:scale(1.01)}
+
+  .package-title{font-size:1.15rem;font-weight:800;color:var(--blue)}
+  .price{font-weight:900;color:var(--dark);font-size:1.25rem;margin-top:6px}
+
+  .games-list{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:8px}
+  .game-item{display:flex;gap:8px;align-items:center;padding:6px 8px;border-radius:8px;background:linear-gradient(90deg,rgba(11,99,216,0.03),rgba(155,226,29,0.02))}
+  .game-item svg{width:28px;height:28px;flex:0 0 28px}
+
+  /* Form */
+  form#booking{display:grid;gap:12px;margin-top:12px}
+  .row{display:flex;gap:12px;flex-wrap:wrap}
+  .field{flex:1;min-width:180px;display:flex;flex-direction:column}
+  label{font-weight:700;margin-bottom:6px}
+  input[type=text],input[type=email],input[type=tel],select,textarea{padding:10px;border-radius:10px;border:1px solid rgba(11,21,48,0.08);font-size:1rem}
+  textarea{min-height:80px;resize:vertical}
+  .addons{display:grid;grid-template-columns:repeat(2,1fr);gap:8px}
+  .addon{display:flex;align-items:center;gap:8px;padding:8px;border-radius:10px;border:1px solid rgba(11,21,48,0.04);background:#fff}
+  .summary{background:linear-gradient(180deg,#fff,#f7fff0);padding:12px;border-radius:10px;border:1px solid rgba(11,21,48,0.03)}
+  .total{font-weight:900;font-size:1.2rem;color:var(--blue)}
+
+  footer{padding:18px;text-align:center;color:var(--muted);margin-top:18px}
+
+  /* layout */
+  @media(min-width:900px){
+    .hero{grid-template-columns:1fr 420px}
+    .grid{grid-template-columns:repeat(3,1fr)}
+    .games-list{grid-column:span 2}
+    .addons{grid-template-columns:repeat(3,1fr)}
+  }
+  .small{font-size:0.9rem;color:var(--muted)}
+  .muted{color:var(--muted)}
+  .note{font-size:0.9rem;color:var(--muted);margin-top:6px}
+  .btn{background:var(--blue);color:white;padding:10px 14px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
+  .btn.secondary{background:transparent;border:2px solid rgba(11,21,48,0.06);color:var(--dark)}
+  .center{text-align:center}
+  .flex{display:flex;gap:8px;align-items:center}
+  .logo-mini{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--blue),#1785ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:900}
+</style>
 </head>
 <body>
-  <header class="site-header" role="banner">
-    <div class="container header-inner">
-      <div class="brand">
-        <!-- Simple SVG logo placeholder. Replace or edit as needed. -->
-        <div class="logo" aria-hidden="true">
-          <svg width="46" height="46" viewBox="0 0 46 46" xmlns="http://www.w3.org/2000/svg" role="img" aria-hidden="true">
+<header class="site-header">
+  <div class="top container">
+    <div class="brand">
+      <div class="logo-wrap" aria-hidden="true">
+        <!-- Logo concept previews (SVG variants are below in the page too) -->
+        <svg width="56" height="56" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img">
+          <defs>
+            <linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#0b63d8"/><stop offset="1" stop-color="#1785ff"/></linearGradient>
+          </defs>
+          <rect rx="18" width="100" height="100" fill="url(#lg)"/>
+          <text x="50" y="58" fill="#fff" font-weight="900" font-size="36" text-anchor="middle" font-family="Inter,Arial">PZ</text>
+        </svg>
+      </div>
+      <div>
+        <h1>Playzone Party Rentals</h1>
+        <div class="tag">Yard games + party add-ons • Based in Palmyra (17078)</div>
+      </div>
+    </div>
+
+    <nav>
+      <a href="#packages" class="small" style="color:white;text-decoration:none">Packages</a>
+      <a href="#games" class="small" style="color:white;text-decoration:none">Games</a>
+      <a href="#contact" class="cta">Book Now</a>
+    </nav>
+  </div>
+</header>
+
+<main class="container">
+  <section class="hero">
+    <div class="hero-left">
+      <h2>Turn any yard into a Playzone 🎉</h2>
+      <p class="lead">Fun, safe, and sporty yard games delivered across Central PA. Choose a package, pick your games, and add the extras you want.</p>
+      <div class="badges">
+        <div class="pill">Serving Central PA</div>
+        <div class="pill">Base: Palmyra (17078)</div>
+        <div class="pill">24-hour rentals</div>
+      </div>
+
+      <div style="margin-top:16px" class="small">Contact: <strong>717-376-7617</strong> • <a href="mailto:playzonepartyrentals@gmail.com">playzonepartyrentals@gmail.com</a></div>
+    </div>
+
+    <div>
+      <div class="card center">
+        <div style="display:flex;gap:12px;align-items:center;justify-content:center">
+          <div class="logo-mini">PZ</div>
+          <div style="text-align:left">
+            <div style="font-weight:900">Quick Book</div>
+            <div class="small muted">Pick package, choose games & add-ons → Get price</div>
+          </div>
+        </div>
+        <div style="margin-top:12px">
+          <button class="btn" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">Start Booking</button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Games -->
+  <section id="games" class="card">
+    <h2>Games</h2>
+    <p class="small muted">Choose from a wide selection — basic or premium options (premium require more setup).</p>
+
+    <div class="games-list" id="gamesList">
+      <!-- Game items are added via JS to keep HTML tidy -->
+    </div>
+  </section>
+
+  <!-- Packages -->
+  <section id="packages">
+    <h2>Packages</h2>
+    <div class="grid">
+      <div class="card" aria-hidden="false">
+        <div class="package-title">Starter Fun</div>
+        <div class="price">$60</div>
+        <div class="note">Pick up to <strong>3 basic</strong> games. 24-hour rental.</div>
+        <div style="margin-top:8px" class="small muted">Great for small family gatherings.</div>
+      </div>
+
+      <div class="card highlight">
+        <div class="package-title">Party Mix</div>
+        <div class="price">$95</div>
+        <div class="note">Pick <strong>5 games total</strong>: up to <strong>3 Basic</strong> + <strong>2 Premium</strong>. 24-hour rental.</div>
+        <div style="margin-top:8px" class="small muted">Most popular — balanced mix of low-effort & premium setups.</div>
+      </div>
+
+      <div class="card">
+        <div class="package-title">Ultimate Block Party</div>
+        <div class="price">$150</div>
+        <div class="note">Pick up to <strong>10 games</strong> — any mix of basic & premium. 24-hour rental.</div>
+        <div style="margin-top:8px" class="small muted">Best for large gatherings and events.</div>
+      </div>
+    </div>
+
+    <div style="margin-top:12px" class="small muted">Delivery & Pickup: <strong>$30</strong> within 15 miles of <strong>17078</strong>. Additional mileage fee may apply beyond that.</div>
+  </section>
+
+  <!-- Booking form -->
+  <section id="contact" class="card" style="margin-top:18px">
+    <h2>Book / Request a Quote</h2>
+    <form id="booking" onsubmit="return handleSubmit(event)">
+      <div class="row">
+        <div class="field">
+          <label for="name">Contact name *</label>
+          <input id="name" name="name" required type="text" placeholder="Jane Doe" />
+        </div>
+        <div class="field">
+          <label for="phone">Phone *</label>
+          <input id="phone" name="phone" required type="tel" placeholder="717-376-7617" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="email">Email *</label>
+          <input id="email" name="email" required type="email" placeholder="you@example.com" />
+        </div>
+        <div class="field">
+          <label for="date">Event date *</label>
+          <input id="date" name="date" required type="date" />
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="field">
+          <label for="package">Package *</label>
+          <select id="package" name="package" required onchange="onPackageChange()">
+            <option value="">Choose a package</option>
+            <option value="starter">Starter Fun — $60 (3 basic)</option>
+            <option value="mix">Party Mix — $95 (3 basic + 2 premium)</option>
+            <option value="ultimate">Ultimate — $150 (up to 10 any)</option>
+          </select>
+        </div>
+
+        <div class="field">
+          <label>Delivery?</label>
+          <select id="delivery" name="delivery">
+            <option value="pickup">I will pickup</option>
+            <option value="deliver">Delivery ($30 within 15 miles)</option>
+          </select>
+        </div>
+      </div>
+
+      <div style="margin-top:8px">
+        <label>Choose your games (the UI will enforce package limits):</label>
+        <div id="gameCheckboxes" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:6px"></div>
+        <div id="selectionNote" class="small muted" style="margin-top:6px">Select a package to see limits.</div>
+      </div>
+
+      <div style="margin-top:12px">
+        <label>Add-ons</label>
+        <div class="addons" id="addonsList">
+          <!-- Addons inserted by JS -->
+        </div>
+      </div>
+
+      <div style="margin-top:12px;display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
+        <div style="flex:1" class="summary">
+          <div class="small muted">Order summary</div>
+          <div style="margin-top:8px">Package: <span id="summaryPackage">—</span></div>
+          <div>Games selected: <span id="summaryGames">0</span></div>
+          <div>Add-ons: <span id="summaryAddons">0</span></div>
+          <div style="margin-top:8px">Delivery: <span id="summaryDelivery">—</span></div>
+          <div style="margin-top:8px" class="total">Estimated total: $<span id="summaryTotal">0</span></div>
+          <div id="formMsg" class="small muted" style="margin-top:8px"></div>
+        </div>
+
+        <div style="min-width:220px;display:flex;flex-direction:column;gap:8px">
+          <button type="submit" class="btn">Request Booking</button>
+          <button type="button" class="btn secondary" onclick="resetForm()">Reset</button>
+        </div>
+      </div>
+
+      <!-- hidden fields to post -->
+      <input type="hidden" name="games" id="hiddenGames" />
+      <input type="hidden" name="addons" id="hiddenAddons" />
+      <input type="hidden" name="calcTotal" id="hiddenTotal" />
+      <input type="hidden" name="source" value="Website - Playzone Party Rentals" />
+    </form>
+
+    <div class="note" style="margin-top:10px">We provide instructions for game modes. No referees or supervision provided. Safety first — kids must be supervised by an adult at all times.</div>
+  </section>
+
+  <!-- Logos + icons section (for your review) -->
+  <section class="card" style="margin-top:18px">
+    <h2>Logo Concepts (Sporty & Bold)</h2>
+    <p class="small muted">Below are 3 quick logo concepts in the chosen style & colors. Download the SVG code for the one you like.</p>
+
+    <div style="display:flex;gap:12px;flex-wrap:wrap">
+      <!-- Logo A -->
+      <div style="flex:1;min-width:260px" class="card">
+        <div style="display:flex;gap:10px;align-items:center">
+          <!-- SVG A -->
+          <svg width="120" height="80" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img">
             <defs>
-              <linearGradient id="g" x1="0" x2="1">
-                <stop offset="0" stop-color="#FF6A00"/>
-                <stop offset="1" stop-color="#0077CC"/>
-              </linearGradient>
+              <linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#0b63d8"/><stop offset="1" stop-color="#1785ff"/></linearGradient>
             </defs>
-            <rect rx="8" width="46" height="46" fill="url(#g)"/>
-            <text x="50%" y="56%" font-size="14" font-weight="700" text-anchor="middle" fill="#fff" font-family="Inter,system-ui">717</text>
+            <rect rx="22" width="300" height="200" fill="#fff"/>
+            <g transform="translate(20,20)">
+              <rect rx="18" width="160" height="160" fill="url(#gA)"/>
+              <text x="80" y="105" fill="#fff" font-size="60" font-weight="900" text-anchor="middle" font-family="Inter">PZ</text>
+              <path d="M200 80 L260 40 L260 120 Z" fill="#9be21d" />
+              <text x="200" y="150" fill="#02143a" font-size="24" font-weight="800">Playzone</text>
+              <text x="200" y="177" fill="#02143a" font-size="14">Party Rentals</text>
+            </g>
           </svg>
         </div>
-        <div>
-          <div style="font-weight:800;letter-spacing:0.2px">717 Nerf Rentals</div>
-          <div class="muted-small">Nerf parties • 717 area • 717-376-7617</div>
-        </div>
+        <div style="margin-top:8px"><strong>Concept A — Block badge + wing</strong><br><span class="small muted">Bold, recognizable badge for shirts & vehicles.</span></div>
       </div>
 
-      <nav class="nav" aria-label="Main navigation">
-        <a href="#packages">Packages</a>
-        <a href="#how">How it works</a>
-        <a href="#faq">FAQ</a>
-        <a href="#book" class="btn btn-primary">Book Now</a>
-      </nav>
+      <!-- Logo B -->
+      <div style="flex:1;min-width:260px" class="card">
+        <svg width="220" height="120" viewBox="0 0 440 240" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="gB" x1="0" x2="1"><stop offset="0" stop-color="#0b63d8"/><stop offset="1" stop-color="#1785ff"/></linearGradient></defs>
+          <rect rx="10" width="440" height="240" fill="#fff"/>
+          <g transform="translate(18,18)">
+            <path d="M0 140 Q90 10 200 80 Q320 150 420 40" stroke="#9be21d" stroke-width="18" fill="none" stroke-linecap="round"/>
+            <text x="40" y="110" fill="#02143a" font-size="62" font-weight="900">PLAYZONE</text>
+            <text x="40" y="150" fill="#02143a" font-size="22" font-weight="700">Party Rentals</text>
+          </g>
+        </svg>
+        <div style="margin-top:8px"><strong>Concept B — Dynamic wordmark</strong><br><span class="small muted">Sporty logo with motion line for energy.</span></div>
+      </div>
+
+      <!-- Logo C -->
+      <div style="flex:1;min-width:260px" class="card">
+        <svg width="220" height="140" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
+          <defs><linearGradient id="gC" x1="0" x2="1"><stop offset="0" stop-color="#0b63d8"/><stop offset="1" stop-color="#1785ff"/></linearGradient></defs>
+          <rect rx="12" width="440" height="280" fill="#fff"/>
+          <g transform="translate(18,18)">
+            <circle cx="80" cy="80" r="60" fill="url(#gC)"/>
+            <text x="80" y="95" font-size="44" font-weight="900" text-anchor="middle" fill="#fff">PZ</text>
+            <text x="180" y="95" font-size="32" font-weight="800" fill="#02143a">Playzone</text>
+            <text x="180" y="128" font-size="18" fill="#02143a">Party Rentals</text>
+            <rect x="170" y="40" width="200" height="80" rx="12" fill="#9be21d" opacity="0.06"/>
+          </g>
+        </svg>
+        <div style="margin-top:8px"><strong>Concept C — Badge + wordmark</strong><br><span class="small muted">Flexible: badge for merch, wordmark for signage.</span></div>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <main>
-    <section class="hero">
-      <div class="container hero-grid">
-        <div>
-          <h2 style="font-size:1.45rem;margin:0 0 8px 0">Bring the battle. We bring everything.</h2>
-          <p class="lead">Nerf blasters, barriers, darts, set-up and pick-up — perfect for birthday parties, backyard battles, youth groups, or corporate team-building across the <strong>717 area</strong>.</p>
-          <div style="margin-top:12px">
-            <span class="kicker">Starting at <strong>$99</strong></span>
-          </div>
+  <!-- Small FAQ -->
+  <section class="card" style="margin-top:18px">
+    <h2>FAQ</h2>
+    <div>
+      <strong>How long are rentals?</strong>
+      <p class="small muted">24 hours by default — pick up the following day or choose delivery & pickup service.</p>
 
-          <div class="actions" style="margin-top:14px">
-            <a href="#book" class="btn btn-primary">Book a Party</a>
-            <a href="#packages" class="btn btn-outline">See Packages</a>
-            <a href="tel:7173767617" class="btn" style="border:2px dashed rgba(0,0,0,0.06);">Call: 717-376-7617</a>
-          </div>
+      <strong>Do you supervise?</strong>
+      <p class="small muted">No referees or supervision are provided. Adults must supervise children at all times.</p>
 
-          <p class="muted-small" style="margin-top:12px">Service area: <strong>717 area</strong> — delivery and pickup options available.</p>
-        </div>
-
-        <div class="hero-image" aria-hidden="true">
-          <!-- Replace with real image in assets/hero-nerf.jpg -->
-          <img src="assets/hero-nerf.jpg" alt="Kids and teens enjoying a backyard Nerf party" />
-        </div>
-      </div>
-    </section>
-
-    <section id="packages" class="container section" aria-labelledby="packages-title">
-      <h3 id="packages-title">Packages</h3>
-      <p class="muted">Simple pricing. Add-ons available (referee, extra darts, travel fee).</p>
-
-      <div class="cards" role="list" aria-label="Available packages">
-        <article class="card" role="listitem">
-          <h4>Starter — $99</h4>
-          <p>4 blasters • 200 darts • 4 pop-up barriers • 1-hour event (setup included)</p>
-          <ul>
-            <li>Up to 8 players</li>
-            <li>Safety goggles included</li>
-            <li>Sanitization between events</li>
-          </ul>
-        </article>
-
-        <article class="card highlighted" role="listitem">
-          <h4>Party — $169</h4>
-          <p>8 blasters • 500 darts • 8 barriers • 2-hour event (setup + teardown)</p>
-          <ul>
-            <li>Up to 16 players</li>
-            <li>Referee add-on available</li>
-            <li>Custom game modes</li>
-          </ul>
-        </article>
-
-        <article class="card" role="listitem">
-          <h4>Ultimate — $249</h4>
-          <p>12 blasters (mixed) • 1000 darts • inflatable barriers • 3-hour event</p>
-          <ul>
-            <li>Up to 30 players</li>
-            <li>Delivery & setup included within 20 miles</li>
-            <li>Great for corporate events</li>
-          </ul>
-        </article>
-      </div>
-
-      <p class="note">All packages include sanitization of gear before delivery. Travel fees may apply for locations outside the included radius.</p>
-    </section>
-
-    <section id="how" class="container section" aria-labelledby="how-title">
-      <h3 id="how-title">How it works</h3>
-      <ol>
-        <li>Choose a package and fill the booking form below.</li>
-        <li>We confirm availability and send a short rental agreement.</li>
-        <li>We deliver, set up, give a brief safety talk, and pick up after the event.</li>
-      </ol>
-    </section>
-
-    <section id="gallery" class="container section" aria-labelledby="gallery-title">
-      <h3 id="gallery-title">Gallery</h3>
-      <div class="gallery-grid" aria-hidden="false">
-        <img src="assets/thumb1.jpg" alt="Backyard Nerf battle setup" />
-        <img src="assets/thumb2.jpg" alt="Group of kids with blasters" />
-        <img src="assets/thumb3.jpg" alt="Inflatable barriers" />
-        <img src="assets/thumb4.jpg" alt="Party setup on a lawn" />
-      </div>
-    </section>
-
-    <section id="faq" class="container section" aria-labelledby="faq-title">
-      <h3 id="faq-title">FAQ</h3>
-      <div style="display:grid;gap:8px">
-        <details>
-          <summary><strong>Do you sanitize equipment?</strong></summary>
-          <p class="muted-small">Yes — all blasters and goggles are cleaned and sanitized between events.</p>
-        </details>
-
-        <details>
-          <summary><strong>Do you provide referees?</strong></summary>
-          <p class="muted-small">Yes — referee / game-moderator is an add-on during booking.</p>
-        </details>
-
-        <details>
-          <summary><strong>What about weather?</strong></summary>
-          <p class="muted-small">Outdoor events can be moved or refunded if severe weather prevents safe play — we’ll coordinate options.</p>
-        </details>
-      </div>
-    </section>
-
-    <section id="book" class="container section" aria-labelledby="book-title">
-      <h3 id="book-title">Book your event</h3>
-      <p class="muted">Fill out the form below and we’ll confirm availability within 24 hours. Or call/text: <strong>717-376-7617</strong>.</p>
-
-      <form id="bookingForm" class="form" novalidate>
-        <!-- NOTE: by default this form uses fetch to send form data to Formspree.
-             Replace FORMSPREE_ENDPOINT with your own Formspree or backend endpoint.
-             Example Formspree action: https://formspree.io/f/yourFormId
-        -->
-        <input type="hidden" id="source" name="source" value="Website - 717 Nerf Rentals" />
-        <div class="form-grid">
-          <div class="form-row">
-            <label for="name">Contact name *</label>
-            <input id="name" name="name" required placeholder="Jane Doe" />
-          </div>
-
-          <div class="form-row">
-            <label for="email">Email *</label>
-            <input id="email" name="email" type="email" required placeholder="name@example.com" />
-          </div>
-
-          <div class="form-row">
-            <label for="phone">Phone</label>
-            <input id="phone" name="phone" inputmode="tel" placeholder="717-555-1234" />
-          </div>
-
-          <div class="form-row">
-            <label for="date">Event date *</label>
-            <input id="date" name="date" type="date" required />
-          </div>
-
-          <div class="form-row">
-            <label for="time">Start time</label>
-            <input id="time" name="time" type="time" />
-          </div>
-
-          <div class="form-row">
-            <label for="packageSelect">Package *</label>
-            <select id="packageSelect" name="package" required>
-              <option value="">Choose a package</option>
-              <option>Starter — $99</option>
-              <option>Party — $169</option>
-              <option>Ultimate — $249</option>
-            </select>
-          </div>
-
-          <div class="form-row">
-            <label for="players">Estimated players</label>
-            <input id="players" name="players" type="number" min="1" max="300" />
-          </div>
-
-          <div class="form-row" style="grid-column:1 / -1">
-            <label for="notes">Notes / Address / Questions</label>
-            <textarea id="notes" name="notes" rows="3" placeholder="Event address, special instructions, add-ons"></textarea>
-          </div>
-        </div>
-
-        <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:10px">
-          <button type="submit" class="btn btn-primary">Request Booking</button>
-          <a href="tel:7173767617" class="btn" style="border:1px solid rgba(0,0,0,0.06)">Call: 717-376-7617</a>
-          <div id="formFeedback" aria-live="polite" style="flex:1"></div>
-        </div>
-      </form>
-
-      <p class="note" style="margin-top:12px">By submitting you agree to receive confirmation and communications about your booking. We serve the 717 area; travel fees may apply outside standard radius.</p>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div style="display:flex;gap:12px;align-items:center;flex-wrap:wrap">
-        <div style="font-weight:800">717 Nerf Rentals</div>
-        <div class="muted-small">Serving the 717 area • Call/Text: <strong>717-376-7617</strong></div>
-      </div>
-      <div class="muted-small">© <span id="year"></span> 717 Nerf Rentals — All rights reserved</div>
+      <strong>What about weather?</strong>
+      <p class="small muted">We can reschedule due to severe weather; contact us to arrange alternatives.</p>
     </div>
-  </footer>
+  </section>
+</main>
 
-  <script>
-    // Simple form submission handler using Fetch -> Formspree (or other endpoint)
-    // Replace FORMSPREE_ENDPOINT with your own endpoint.
-    (function(){
-      const FORMSPREE_ENDPOINT = "https://formspree.io/f/YOUR_FORM_ID"; // <-- REPLACE THIS
-      const form = document.getElementById('bookingForm');
-      const feedback = document.getElementById('formFeedback');
-      const yearEl = document.getElementById('year');
-      yearEl.textContent = new Date().getFullYear();
+<footer>
+  © <span id="yr"></span> Playzone Party Rentals — Serving Central PA • Based in Palmyra (17078) • 717-376-7617 • playzonepartyrentals@gmail.com
+</footer>
 
-      function showMessage(message, type){
-        feedback.innerHTML = '<div class="'+(type==='error'?'error':'success')+'">'+message+'</div>';
+<!-- ====== Data & JS ====== -->
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // CONFIG: form endpoint. Replace with your Formspree or backend URL.
+  const FORM_ACTION = "https://formspree.io/f/YOUR_FORM_ID"; // <-- REPLACE THIS
+
+  // Game definitions
+  const BASIC_GAMES = [
+    {id:'cornhole', name:'Cornhole'},
+    {id:'kanjam', name:'Kan Jam'},
+    {id:'ringtoss', name:'Ring Toss'},
+    {id:'horseshoes', name:'Horseshoes'},
+    {id:'laddertoss', name:'Ladder Toss'},
+    {id:'giantjenga', name:'Giant Jenga'},
+    {id:'beerpong', name:'Beer Pong'},
+    {id:'spikeball', name:'Spikeball'},
+    {id:'soccer', name:'Soccer'}
+  ];
+  const PREMIUM_GAMES = [
+    {id:'axe', name:'Kid-Friendly Axe Throwing'},
+    {id:'badminton', name:'Badminton (net + rackets)'},
+    {id:'volleyball', name:'Volleyball (net + ball)'},
+    {id:'nerf', name:'Nerf Guns Kit (10 guns + 150 darts + eyewear)'}
+  ];
+
+  const ADDONS = [
+    {id:'speaker', name:'Bluetooth Speaker + 2 mics', price:20},
+    {id:'bubble', name:'Bubble Machine (w/ solution)', price:20},
+    {id:'slip', name:'Slip & Slide', price:30},
+    {id:'waterballoons', name:'Water Balloon Kit', price:10},
+    {id:'projector', name:'Projector + Outdoor Screen', price:50},
+    {id:'footballs', name:'Footballs (set)', price:5},
+    {id:'frisbees', name:'Frisbees (set)', price:5},
+    {id:'waterguns', name:'Water Guns Kit', price:20},
+    {id:'extranerf', name:'Extra Nerf Gun (each)', price:5},
+    {id:'darts', name:'150 Foam Darts (keep or return)', price:15}
+  ];
+
+  // Init UI
+  const gamesListEl = document.getElementById('gamesList');
+  const gameCheckboxes = document.getElementById('gameCheckboxes');
+  const addonsList = document.getElementById('addonsList');
+
+  function createGameItem(game, isPremium=false){
+    const div = document.createElement('div');
+    div.className = 'game-item';
+    div.innerHTML = `
+      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <circle cx="12" cy="12" r="10" fill="${isPremium ? '#9be21d' : '#1785ff'}"/>
+        <text x="12" y="16" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">${game.name.split(' ').map(w=>w[0]).join('')}</text>
+      </svg>
+      <div style="font-weight:700">${game.name}${isPremium? ' • (Premium)':''}</div>
+    `;
+    return div;
+  }
+
+  // Render games gallery small
+  BASIC_GAMES.concat(PREMIUM_GAMES).forEach(g=>{
+    gamesListEl.appendChild(createGameItem(g, PREMIUM_GAMES.some(p=>p.id===g.id)));
+  });
+
+  // render checkboxes for selection
+  function renderGameCheckboxes(){
+    gameCheckboxes.innerHTML = '';
+    BASIC_GAMES.forEach(g=>{
+      const id = 'cb_'+g.id;
+      const wrapper = document.createElement('label');
+      wrapper.className = 'addon';
+      wrapper.style.cursor='pointer';
+      wrapper.innerHTML = `<input type="checkbox" value="${g.id}" data-type="basic" id="${id}" /> <div>${g.name}</div>`;
+      gameCheckboxes.appendChild(wrapper);
+    });
+    PREMIUM_GAMES.forEach(g=>{
+      const id = 'cb_'+g.id;
+      const wrapper = document.createElement('label');
+      wrapper.className = 'addon';
+      wrapper.style.cursor='pointer';
+      wrapper.innerHTML = `<input type="checkbox" value="${g.id}" data-type="premium" id="${id}" /> <div>${g.name} <span style="font-weight:700;color:var(--muted);"> (premium)</span></div>`;
+      gameCheckboxes.appendChild(wrapper);
+    });
+
+    // attach listeners to enforce limits
+    gameCheckboxes.querySelectorAll('input[type=checkbox]').forEach(cb=>{
+      cb.addEventListener('change', enforceLimits);
+    });
+  }
+
+  // Render addons
+  function renderAddons(){
+    addonsList.innerHTML = '';
+    ADDONS.forEach(a=>{
+      const div = document.createElement('label');
+      div.className = 'addon';
+      div.innerHTML = `<input type="checkbox" value="${a.id}" data-price="${a.price}" id="ad_${a.id}" /> <div style="flex:1"><strong>${a.name}</strong><div class="small muted">$${a.price}</div></div>`;
+      addonsList.appendChild(div);
+      div.querySelector('input').addEventListener('change', updateSummary);
+    });
+  }
+
+  renderGameCheckboxes();
+  renderAddons();
+
+  // Limit enforcement
+  function onPackageChange(){
+    // reset selections on package change? we'll keep but enforce limits
+    enforceLimits();
+    updateSummary();
+  }
+
+  function enforceLimits(){
+    const pkg = document.getElementById('package').value;
+    const selected = Array.from(gameCheckboxes.querySelectorAll('input[type=checkbox]:checked')).map(i=>({id:i.value,type:i.dataset.type}));
+    let basicSel = selected.filter(s=>s.type==='basic').length;
+    let premiumSel = selected.filter(s=>s.type==='premium').length;
+
+    let basicLimit=0, premiumLimit=0, totalLimit=0;
+    if(pkg==='starter'){ basicLimit=3; premiumLimit=0; totalLimit=3; }
+    else if(pkg==='mix'){ basicLimit=3; premiumLimit=2; totalLimit=5; }
+    else if(pkg==='ultimate'){ basicLimit=999; premiumLimit=999; totalLimit=10; }
+    else { basicLimit=0; premiumLimit=0; totalLimit=0; }
+
+    // update selection note
+    const note = document.getElementById('selectionNote');
+    if(!pkg){ note.textContent = 'Select a package to see allowed game counts.'; }
+    else {
+      note.textContent = `Allowed: up to ${totalLimit} total games. (Basic limit: ${basicLimit===999?'no limit':basicLimit}, Premium limit: ${premiumLimit===999?'no limit':premiumLimit})`;
+    }
+
+    // Disable checkboxes if over limit
+    // First enable all
+    gameCheckboxes.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.disabled=false);
+
+    // If selected counts exceed limits, uncheck extras (we'll prefer to leave existing selection but prevent new checks)
+    // Disable unchecked boxes that would violate limits
+    if(pkg){
+      // If basic selected >= basicLimit, disable other basic unchecked
+      const basicUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[data-type=basic]:not(:checked)'));
+      if(basicSel >= basicLimit){
+        basicUnchecked.forEach(cb=>cb.disabled=true);
       }
+      // If premium selected >= premiumLimit, disable other premium unchecked
+      const premiumUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[data-type=premium]:not(:checked)'));
+      if(premiumSel >= premiumLimit){
+        premiumUnchecked.forEach(cb=>cb.disabled=true);
+      }
+      // Also enforce total limit
+      const totalUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[type=checkbox]:not(:checked)'));
+      if(selected.length >= totalLimit){
+        // disable all unchecked
+        totalUnchecked.forEach(cb=>cb.disabled=true);
+      }
+    }
 
-      form.addEventListener('submit', function(e){
-        e.preventDefault();
-        feedback.innerHTML = '';
+    updateSummary();
+  }
 
-        // Basic client-side validation
-        const name = form.name.value.trim();
-        const email = form.email.value.trim();
-        const date = form.date.value;
-        const pkg = form.package ? form.package.value : form.packageSelect.value;
+  // Summary / calc
+  function updateSummary(){
+    const pkg = document.getElementById('package').value;
+    const pkgMap = {starter:{price:60,label:'Starter Fun'},mix:{price:95,label:'Party Mix'},ultimate:{price:150,label:'Ultimate Block Party'}};
+    const selectedGames = Array.from(gameCheckboxes.querySelectorAll('input[type=checkbox]:checked')).map(i=>i.value);
+    const selectedAddons = Array.from(addonsList.querySelectorAll('input[type=checkbox]:checked')).map(i=>i.value);
+    const addonsSum = Array.from(addonsList.querySelectorAll('input[type=checkbox]:checked')).reduce((s,i)=>s+Number(i.dataset.price||0),0);
+    const deliveryMode = document.getElementById('delivery').value;
+    const deliveryFee = (deliveryMode==='deliver')?30:0;
 
-        if(!name || !email || !date || !pkg){
-          showMessage('Please complete all required fields (name, email, event date, package).', 'error');
-          return;
-        }
+    let base = pkg && pkgMap[pkg] ? pkgMap[pkg].price : 0;
+    // No per-game extra charges — package covers X games
 
-        const data = new FormData(form);
+    // If package is empty, prevent addons-only with warning? We'll allow but show note
+    const total = base + addonsSum + deliveryFee;
 
-        // If user did not replace the endpoint, we show a helpful message and still simulate success.
-        if(FORMSPREE_ENDPOINT.includes('YOUR_FORM_ID')){
-          // Provide a fallback: show the submission contents so you can copy/paste
-          const summary = Array.from(data.entries()).map(([k,v])=>`<strong>${k}:</strong> ${v}`).join('<br>');
-          showMessage('Demo mode — form not sent. Replace <code>FORMSPREE_ENDPOINT</code> in the HTML with your Formspree endpoint to enable sending.<br><br>' + summary, 'success');
-          return;
-        }
+    document.getElementById('summaryPackage').textContent = (pkgMap[pkg]? pkgMap[pkg].label : '—');
+    document.getElementById('summaryGames').textContent = selectedGames.length;
+    document.getElementById('summaryAddons').textContent = selectedAddons.length;
+    document.getElementById('summaryDelivery').textContent = deliveryMode==='deliver'? `$${deliveryFee}` : 'Pickup';
+    document.getElementById('summaryTotal').textContent = total.toFixed(2);
 
-        // Send to Formspree (or other endpoint) via Fetch
-        fetch(FORMSPREE_ENDPOINT, {
-          method:'POST',
-          body: data,
-          headers: {
-            'Accept': 'application/json'
-          }
-        })
-        .then(response => response.json())
-        .then(json => {
-          // Formspree returns an 'ok' or errors object
-          if(json.ok || json.success || json.success === true){
-            form.reset();
-            showMessage('Thanks — your booking request was sent. We will contact you shortly to confirm availability.', 'success');
-            window.scrollTo({top:0,behavior:'smooth'});
-          } else {
-            showMessage('There was an issue submitting the form. Please call or text 717-376-7617.', 'error');
-          }
-        })
-        .catch(err => {
-          console.error(err);
-          showMessage('Network error while sending form. Please call or text 717-376-7617.', 'error');
-        });
+    // set hidden fields
+    document.getElementById('hiddenGames').value = selectedGames.join(',');
+    document.getElementById('hiddenAddons').value = selectedAddons.join(',');
+    document.getElementById('hiddenTotal').value = total.toFixed(2);
+
+    // helpful message
+    const msg = document.getElementById('formMsg');
+    if(!pkg) msg.textContent = 'Choose a package to get an accurate quote.';
+    else msg.textContent = '';
+  }
+
+  // Form submit
+  function handleSubmit(e){
+    e.preventDefault();
+    const form = e.target;
+    const name = form.name.value.trim();
+    const phone = form.phone.value.trim();
+    const email = form.email.value.trim();
+    const date = form.date.value;
+    const pkg = form.package.value;
+
+    if(!name || !phone || !email || !date || !pkg){
+      alert('Please complete required fields: name, phone, email, date, package.');
+      return false;
+    }
+
+    // If FORM_ACTION not replaced, show demo summary
+    if(FORM_ACTION.includes('YOUR_FORM_ID')){
+      const games = document.getElementById('hiddenGames').value || '(none)';
+      const addons = document.getElementById('hiddenAddons').value || '(none)';
+      const total = document.getElementById('hiddenTotal').value || '0.00';
+      const summary = `Demo booking (form not sent)\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nDate: ${date}\nPackage: ${pkg}\nGames: ${games}\nAddons: ${addons}\nTotal: $${total}`;
+      alert(summary + '\n\nReplace FORM_ACTION with your Formspree endpoint to enable live form submission.');
+      return false;
+    }
+
+    // build FormData and send
+    const data = new FormData(form);
+    fetch(FORM_ACTION, {method:'POST', body: data, headers:{ 'Accept':'application/json' }})
+      .then(r=>r.json()).then(j=>{
+        alert('Thanks — your request was sent. We will contact you shortly.');
+        form.reset();
+        updateSummary();
+      }).catch(err=>{
+        console.error(err); alert('Error sending form. Please call/text 717-376-7617.');
       });
-    })();
-  </script>
+
+    return false;
+  }
+
+  function resetForm(){
+    document.getElementById('booking').reset();
+    renderGameCheckboxes();
+    renderAddons();
+    updateSummary();
+  }
+
+  // attach events
+  document.getElementById('package').addEventListener('change', onPackageChange);
+  document.getElementById('delivery').addEventListener('change', updateSummary);
+
+  // initial update
+  updateSummary();
+
+</script>
 </body>
 </html>
+
