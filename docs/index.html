@@ -7,32 +7,32 @@
 <meta name="description" content="Playzone Party Rentals — Backyard & yard game rentals across Central PA. Based in Palmyra (17078). Phone: 717-376-7617" />
 <style>
   :root{
-    --blue: #0b63d8;
-    --lime: #9be21d;
-    --white: #ffffff;
-    --dark: #0b1530;
-    --muted: #6b7280;
-    --card: #f7fbff;
-    --radius: 14px;
+    --blue:#0b63d8;
+    --lime:#9be21d;
+    --white:#ffffff;
+    --dark:#071033;
+    --muted:#6b7280;
+    --card:#f7fbff;
+    --radius:14px;
     font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
   }
   *{box-sizing:border-box}
+  html,body{height:100%;margin:0}
   body{margin:0;background:linear-gradient(180deg,#f3f7ff,#ffffff);color:var(--dark);-webkit-font-smoothing:antialiased}
+  a{color:inherit}
   .container{max-width:1100px;margin:0 auto;padding:18px}
 
   /* Header */
   header.site-header{
     background:linear-gradient(90deg,var(--blue), #2a9df4);
     color:var(--white);
-    padding:22px 18px;
+    padding:20px 18px;
     border-bottom:6px solid rgba(11,99,216,0.12);
   }
-  .top{
-    display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap;max-width:1100px;margin:0 auto;
-  }
+  .top{display:flex;align-items:center;gap:16px;justify-content:space-between;flex-wrap:wrap;max-width:1100px;margin:0 auto}
   .brand{display:flex;align-items:center;gap:14px}
-  .logo-wrap{width:78px;height:78px;border-radius:16px;background:linear-gradient(135deg,var(--blue),#1785ff);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(11,99,216,0.12)}
-  .brand h1{margin:0;font-size:1.45rem;letter-spacing:0.4px}
+  .logo-wrap{width:78px;height:78px;border-radius:12px;background:linear-gradient(135deg,var(--blue),#1785ff);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(11,99,216,0.12)}
+  .brand h1{margin:0;font-size:1.35rem;letter-spacing:0.3px}
   .tag{font-weight:600;color:rgba(255,255,255,0.95);font-size:0.95rem}
 
   nav{display:flex;gap:10px;align-items:center}
@@ -44,18 +44,18 @@
   .lead{color:var(--muted);margin-top:8px}
   .badges{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
   .pill{background:var(--card);padding:8px 10px;border-radius:999px;font-weight:700;color:var(--blue)}
+  .logo-mini{width:46px;height:46px;border-radius:10px;background:linear-gradient(135deg,var(--blue),#1785ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:900}
 
-  /* Cards */
+  /* Cards & grid */
   .grid{display:grid;grid-template-columns:1fr;gap:12px}
   .card{background:white;border-radius:14px;padding:16px;border:1px solid rgba(11,21,48,0.04);box-shadow:0 8px 24px rgba(11,21,48,0.04)}
   .card.highlight{border:2px solid rgba(155,226,29,0.14);transform:scale(1.01)}
-
   .package-title{font-size:1.15rem;font-weight:800;color:var(--blue)}
   .price{font-weight:900;color:var(--dark);font-size:1.25rem;margin-top:6px}
+  .note{font-size:0.95rem;color:var(--muted);margin-top:6px}
 
-  .games-list{display:grid;grid-template-columns:repeat(2,1fr);gap:6px;margin-top:8px}
-  .game-item{display:flex;gap:8px;align-items:center;padding:6px 8px;border-radius:8px;background:linear-gradient(90deg,rgba(11,99,216,0.03),rgba(155,226,29,0.02))}
-  .game-item svg{width:28px;height:28px;flex:0 0 28px}
+  .games-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
+  .game-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:10px;background:linear-gradient(90deg,rgba(11,99,216,0.03),rgba(155,226,29,0.02))}
 
   /* Form */
   form#booking{display:grid;gap:12px;margin-top:12px}
@@ -80,12 +80,10 @@
   }
   .small{font-size:0.9rem;color:var(--muted)}
   .muted{color:var(--muted)}
-  .note{font-size:0.9rem;color:var(--muted);margin-top:6px}
   .btn{background:var(--blue);color:white;padding:10px 14px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
   .btn.secondary{background:transparent;border:2px solid rgba(11,21,48,0.06);color:var(--dark)}
   .center{text-align:center}
-  .flex{display:flex;gap:8px;align-items:center}
-  .logo-mini{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--blue),#1785ff);display:flex;align-items:center;justify-content:center;color:white;font-weight:900}
+  label input{margin-right:8px}
 </style>
 </head>
 <body>
@@ -93,24 +91,27 @@
   <div class="top container">
     <div class="brand">
       <div class="logo-wrap" aria-hidden="true">
-        <!-- Logo concept previews (SVG variants are below in the page too) -->
-        <svg width="56" height="56" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img">
+        <!-- === LOGO CONCEPT B (Sporty Wordmark with motion line) === -->
+        <svg width="86" height="86" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Playzone Party Rentals logo">
           <defs>
-            <linearGradient id="lg" x1="0" x2="1"><stop offset="0" stop-color="#0b63d8"/><stop offset="1" stop-color="#1785ff"/></linearGradient>
+            <linearGradient id="lgB" x1="0" x2="1"><stop offset="0" stop-color="#0b63d8"/><stop offset="1" stop-color="#1785ff"/></linearGradient>
           </defs>
-          <rect rx="18" width="100" height="100" fill="url(#lg)"/>
-          <text x="50" y="58" fill="#fff" font-weight="900" font-size="36" text-anchor="middle" font-family="Inter,Arial">PZ</text>
+          <rect rx="36" width="300" height="300" fill="url(#lgB)"/>
+          <g transform="translate(30,30)">
+            <path d="M0 220 Q120 20 260 120" stroke="#9be21d" stroke-width="22" fill="none" stroke-linecap="round"/>
+            <text x="40" y="160" fill="#fff" font-size="110" font-weight="900" font-family="Inter,Arial" >PZ</text>
+          </g>
         </svg>
       </div>
       <div>
         <h1>Playzone Party Rentals</h1>
-        <div class="tag">Yard games + party add-ons • Based in Palmyra (17078)</div>
+        <div class="tag">Yard games & party add-ons • Based in Palmyra (17078) • Serving Central PA</div>
       </div>
     </div>
 
     <nav>
-      <a href="#packages" class="small" style="color:white;text-decoration:none">Packages</a>
-      <a href="#games" class="small" style="color:white;text-decoration:none">Games</a>
+      <a href="#packages" class="small" style="color:white;text-decoration:none;margin-right:10px">Packages</a>
+      <a href="#games" class="small" style="color:white;text-decoration:none;margin-right:10px">Games</a>
       <a href="#contact" class="cta">Book Now</a>
     </nav>
   </div>
@@ -127,7 +128,7 @@
         <div class="pill">24-hour rentals</div>
       </div>
 
-      <div style="margin-top:16px" class="small">Contact: <strong>717-376-7617</strong> • <a href="mailto:playzonepartyrentals@gmail.com">playzonepartyrentals@gmail.com</a></div>
+      <div style="margin-top:16px" class="small">Contact: <strong>717-376-7617</strong> • <a href="mailto:playzonepartyrentals@outlook.com" style="color:var(--white)">playzonepartyrentals@outlook.com</a></div>
     </div>
 
     <div>
@@ -152,7 +153,7 @@
     <p class="small muted">Choose from a wide selection — basic or premium options (premium require more setup).</p>
 
     <div class="games-list" id="gamesList">
-      <!-- Game items are added via JS to keep HTML tidy -->
+      <!-- populated by JS -->
     </div>
   </section>
 
@@ -239,9 +240,7 @@
 
       <div style="margin-top:12px">
         <label>Add-ons</label>
-        <div class="addons" id="addonsList">
-          <!-- Addons inserted by JS -->
-        </div>
+        <div class="addons" id="addonsList"></div>
       </div>
 
       <div style="margin-top:12px;display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
@@ -261,76 +260,32 @@
         </div>
       </div>
 
-      <!-- hidden fields to post -->
+      <!-- Hidden fields to post -->
       <input type="hidden" name="games" id="hiddenGames" />
       <input type="hidden" name="addons" id="hiddenAddons" />
       <input type="hidden" name="calcTotal" id="hiddenTotal" />
       <input type="hidden" name="source" value="Website - Playzone Party Rentals" />
     </form>
 
-    <div class="note" style="margin-top:10px">We provide instructions for game modes. No referees or supervision provided. Safety first — kids must be supervised by an adult at all times.</div>
+    <div class="note" style="margin-top:10px">We provide instructions for different game modes. No referees or supervision provided. Adults must supervise children at all times. Rentals are for 24 hours by default.</div>
   </section>
 
-  <!-- Logos + icons section (for your review) -->
+  <!-- Logo + icons preview -->
   <section class="card" style="margin-top:18px">
-    <h2>Logo Concepts (Sporty & Bold)</h2>
-    <p class="small muted">Below are 3 quick logo concepts in the chosen style & colors. Download the SVG code for the one you like.</p>
+    <h2>Game Badges (updated)</h2>
+    <p class="small muted">Premium games now use clear 2-letter badges for quick recognition.</p>
+    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
+      <div class="game-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#1785ff"/><text x="20" y="25" font-size="14" text-anchor="middle" fill="#fff" font-weight="800">BM</text></svg><div style="margin-left:8px">Badminton (BM)</div></div>
 
-    <div style="display:flex;gap:12px;flex-wrap:wrap">
-      <!-- Logo A -->
-      <div style="flex:1;min-width:260px" class="card">
-        <div style="display:flex;gap:10px;align-items:center">
-          <!-- SVG A -->
-          <svg width="120" height="80" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img">
-            <defs>
-              <linearGradient id="gA" x1="0" x2="1"><stop offset="0" stop-color="#0b63d8"/><stop offset="1" stop-color="#1785ff"/></linearGradient>
-            </defs>
-            <rect rx="22" width="300" height="200" fill="#fff"/>
-            <g transform="translate(20,20)">
-              <rect rx="18" width="160" height="160" fill="url(#gA)"/>
-              <text x="80" y="105" fill="#fff" font-size="60" font-weight="900" text-anchor="middle" font-family="Inter">PZ</text>
-              <path d="M200 80 L260 40 L260 120 Z" fill="#9be21d" />
-              <text x="200" y="150" fill="#02143a" font-size="24" font-weight="800">Playzone</text>
-              <text x="200" y="177" fill="#02143a" font-size="14">Party Rentals</text>
-            </g>
-          </svg>
-        </div>
-        <div style="margin-top:8px"><strong>Concept A — Block badge + wing</strong><br><span class="small muted">Bold, recognizable badge for shirts & vehicles.</span></div>
-      </div>
+      <div class="game-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#9be21d"/><text x="20" y="25" font-size="14" text-anchor="middle" fill="#02143a" font-weight="800">AT</text></svg><div style="margin-left:8px">Kid-Friendly Axe Throwing (AT)</div></div>
 
-      <!-- Logo B -->
-      <div style="flex:1;min-width:260px" class="card">
-        <svg width="220" height="120" viewBox="0 0 440 240" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="gB" x1="0" x2="1"><stop offset="0" stop-color="#0b63d8"/><stop offset="1" stop-color="#1785ff"/></linearGradient></defs>
-          <rect rx="10" width="440" height="240" fill="#fff"/>
-          <g transform="translate(18,18)">
-            <path d="M0 140 Q90 10 200 80 Q320 150 420 40" stroke="#9be21d" stroke-width="18" fill="none" stroke-linecap="round"/>
-            <text x="40" y="110" fill="#02143a" font-size="62" font-weight="900">PLAYZONE</text>
-            <text x="40" y="150" fill="#02143a" font-size="22" font-weight="700">Party Rentals</text>
-          </g>
-        </svg>
-        <div style="margin-top:8px"><strong>Concept B — Dynamic wordmark</strong><br><span class="small muted">Sporty logo with motion line for energy.</span></div>
-      </div>
+      <div class="game-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#9be21d"/><text x="20" y="25" font-size="14" text-anchor="middle" fill="#02143a" font-weight="800">NG</text></svg><div style="margin-left:8px">Nerf Guns Kit (NG)</div></div>
 
-      <!-- Logo C -->
-      <div style="flex:1;min-width:260px" class="card">
-        <svg width="220" height="140" viewBox="0 0 440 280" xmlns="http://www.w3.org/2000/svg">
-          <defs><linearGradient id="gC" x1="0" x2="1"><stop offset="0" stop-color="#0b63d8"/><stop offset="1" stop-color="#1785ff"/></linearGradient></defs>
-          <rect rx="12" width="440" height="280" fill="#fff"/>
-          <g transform="translate(18,18)">
-            <circle cx="80" cy="80" r="60" fill="url(#gC)"/>
-            <text x="80" y="95" font-size="44" font-weight="900" text-anchor="middle" fill="#fff">PZ</text>
-            <text x="180" y="95" font-size="32" font-weight="800" fill="#02143a">Playzone</text>
-            <text x="180" y="128" font-size="18" fill="#02143a">Party Rentals</text>
-            <rect x="170" y="40" width="200" height="80" rx="12" fill="#9be21d" opacity="0.06"/>
-          </g>
-        </svg>
-        <div style="margin-top:8px"><strong>Concept C — Badge + wordmark</strong><br><span class="small muted">Flexible: badge for merch, wordmark for signage.</span></div>
-      </div>
+      <div class="game-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#9be21d"/><text x="20" y="25" font-size="14" text-anchor="middle" fill="#02143a" font-weight="800">VB</text></svg><div style="margin-left:8px">Volleyball (VB)</div></div>
     </div>
   </section>
 
-  <!-- Small FAQ -->
+  <!-- FAQ -->
   <section class="card" style="margin-top:18px">
     <h2>FAQ</h2>
     <div>
@@ -347,17 +302,17 @@
 </main>
 
 <footer>
-  © <span id="yr"></span> Playzone Party Rentals — Serving Central PA • Based in Palmyra (17078) • 717-376-7617 • playzonepartyrentals@gmail.com
+  © <span id="yr"></span> Playzone Party Rentals — Serving Central PA • Based in Palmyra (17078) • 717-376-7617 • playzonepartyrentals@outlook.com
 </footer>
 
 <!-- ====== Data & JS ====== -->
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
 
-  // CONFIG: form endpoint. Replace with your Formspree or backend URL.
-  const FORM_ACTION = "https://formspree.io/f/YOUR_FORM_ID"; // <-- REPLACE THIS
+  // Replace with your Formspree or backend endpoint to enable live submissions:
+  const FORM_ACTION = "https://formspree.io/f/YOUR_FORM_ID"; // <-- REPLACE THIS with your form endpoint
 
-  // Game definitions
+  // GAME DEFINITIONS
   const BASIC_GAMES = [
     {id:'cornhole', name:'Cornhole'},
     {id:'kanjam', name:'Kan Jam'},
@@ -370,10 +325,10 @@
     {id:'soccer', name:'Soccer'}
   ];
   const PREMIUM_GAMES = [
-    {id:'axe', name:'Kid-Friendly Axe Throwing'},
-    {id:'badminton', name:'Badminton (net + rackets)'},
-    {id:'volleyball', name:'Volleyball (net + ball)'},
-    {id:'nerf', name:'Nerf Guns Kit (10 guns + 150 darts + eyewear)'}
+    {id:'badminton', name:'Badminton', badge:'BM'},
+    {id:'axe', name:'Kid-Friendly Axe Throwing', badge:'AT'},
+    {id:'volleyball', name:'Volleyball', badge:'VB'},
+    {id:'nerf', name:'Nerf Guns Kit', badge:'NG'}
   ];
 
   const ADDONS = [
@@ -389,50 +344,44 @@
     {id:'darts', name:'150 Foam Darts (keep or return)', price:15}
   ];
 
-  // Init UI
+  // UI elements
   const gamesListEl = document.getElementById('gamesList');
   const gameCheckboxes = document.getElementById('gameCheckboxes');
   const addonsList = document.getElementById('addonsList');
 
   function createGameItem(game, isPremium=false){
-    const div = document.createElement('div');
-    div.className = 'game-item';
-    div.innerHTML = `
-      <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-        <circle cx="12" cy="12" r="10" fill="${isPremium ? '#9be21d' : '#1785ff'}"/>
-        <text x="12" y="16" text-anchor="middle" font-size="10" fill="#fff" font-weight="700">${game.name.split(' ').map(w=>w[0]).join('')}</text>
-      </svg>
-      <div style="font-weight:700">${game.name}${isPremium? ' • (Premium)':''}</div>
-    `;
-    return div;
+    const el = document.createElement('div');
+    el.className = 'game-item';
+    const badge = isPremium ? (game.badge || game.name.split(' ').map(w=>w[0]).join('').slice(0,2)) : game.name.split(' ').map(w=>w[0]).join('').slice(0,2);
+    const fill = isPremium ? '#9be21d' : '#1785ff';
+    const textColor = isPremium ? '#02143a' : '#fff';
+    el.innerHTML = `<svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="${fill}"/><text x="20" y="25" font-size="12" text-anchor="middle" fill="${textColor}" font-weight="800">${badge}</text></svg><div style="font-weight:700">${game.name}${isPremium? ' • (Premium)':''}</div>`;
+    return el;
   }
 
-  // Render games gallery small
+  // Render games gallery
   BASIC_GAMES.concat(PREMIUM_GAMES).forEach(g=>{
-    gamesListEl.appendChild(createGameItem(g, PREMIUM_GAMES.some(p=>p.id===g.id)));
+    const isPremium = PREMIUM_GAMES.some(p=>p.id===g.id);
+    gamesListEl.appendChild(createGameItem(g, isPremium));
   });
 
-  // render checkboxes for selection
+  // Render checkboxes for selection
   function renderGameCheckboxes(){
     gameCheckboxes.innerHTML = '';
     BASIC_GAMES.forEach(g=>{
-      const id = 'cb_'+g.id;
       const wrapper = document.createElement('label');
       wrapper.className = 'addon';
       wrapper.style.cursor='pointer';
-      wrapper.innerHTML = `<input type="checkbox" value="${g.id}" data-type="basic" id="${id}" /> <div>${g.name}</div>`;
+      wrapper.innerHTML = `<input type="checkbox" value="${g.id}" data-type="basic" /> <div style="flex:1">${g.name}</div>`;
       gameCheckboxes.appendChild(wrapper);
     });
     PREMIUM_GAMES.forEach(g=>{
-      const id = 'cb_'+g.id;
       const wrapper = document.createElement('label');
       wrapper.className = 'addon';
       wrapper.style.cursor='pointer';
-      wrapper.innerHTML = `<input type="checkbox" value="${g.id}" data-type="premium" id="${id}" /> <div>${g.name} <span style="font-weight:700;color:var(--muted);"> (premium)</span></div>`;
+      wrapper.innerHTML = `<input type="checkbox" value="${g.id}" data-type="premium" /> <div style="flex:1">${g.name} <span style="font-weight:700;color:var(--muted)"> (premium)</span></div>`;
       gameCheckboxes.appendChild(wrapper);
     });
-
-    // attach listeners to enforce limits
     gameCheckboxes.querySelectorAll('input[type=checkbox]').forEach(cb=>{
       cb.addEventListener('change', enforceLimits);
     });
@@ -444,7 +393,8 @@
     ADDONS.forEach(a=>{
       const div = document.createElement('label');
       div.className = 'addon';
-      div.innerHTML = `<input type="checkbox" value="${a.id}" data-price="${a.price}" id="ad_${a.id}" /> <div style="flex:1"><strong>${a.name}</strong><div class="small muted">$${a.price}</div></div>`;
+      div.style.cursor='pointer';
+      div.innerHTML = `<input type="checkbox" value="${a.id}" data-price="${a.price}" /> <div style="flex:1"><strong>${a.name}</strong><div class="small muted">$${a.price}</div></div>`;
       addonsList.appendChild(div);
       div.querySelector('input').addEventListener('change', updateSummary);
     });
@@ -453,12 +403,8 @@
   renderGameCheckboxes();
   renderAddons();
 
-  // Limit enforcement
-  function onPackageChange(){
-    // reset selections on package change? we'll keep but enforce limits
-    enforceLimits();
-    updateSummary();
-  }
+  // Enforce package limits
+  function onPackageChange(){ enforceLimits(); updateSummary(); }
 
   function enforceLimits(){
     const pkg = document.getElementById('package').value;
@@ -472,42 +418,30 @@
     else if(pkg==='ultimate'){ basicLimit=999; premiumLimit=999; totalLimit=10; }
     else { basicLimit=0; premiumLimit=0; totalLimit=0; }
 
-    // update selection note
     const note = document.getElementById('selectionNote');
     if(!pkg){ note.textContent = 'Select a package to see allowed game counts.'; }
     else {
       note.textContent = `Allowed: up to ${totalLimit} total games. (Basic limit: ${basicLimit===999?'no limit':basicLimit}, Premium limit: ${premiumLimit===999?'no limit':premiumLimit})`;
     }
 
-    // Disable checkboxes if over limit
-    // First enable all
+    // enable all first
     gameCheckboxes.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.disabled=false);
 
-    // If selected counts exceed limits, uncheck extras (we'll prefer to leave existing selection but prevent new checks)
-    // Disable unchecked boxes that would violate limits
+    // disable unchecked boxes if limits reached
     if(pkg){
-      // If basic selected >= basicLimit, disable other basic unchecked
       const basicUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[data-type=basic]:not(:checked)'));
-      if(basicSel >= basicLimit){
-        basicUnchecked.forEach(cb=>cb.disabled=true);
-      }
-      // If premium selected >= premiumLimit, disable other premium unchecked
-      const premiumUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[data-type=premium]:not(:checked)'));
-      if(premiumSel >= premiumLimit){
-        premiumUnchecked.forEach(cb=>cb.disabled=true);
-      }
-      // Also enforce total limit
-      const totalUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[type=checkbox]:not(:checked)'));
-      if(selected.length >= totalLimit){
-        // disable all unchecked
-        totalUnchecked.forEach(cb=>cb.disabled=true);
-      }
-    }
+      if(basicSel >= basicLimit) basicUnchecked.forEach(cb=>cb.disabled=true);
 
+      const premiumUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[data-type=premium]:not(:checked)'));
+      if(premiumSel >= premiumLimit) premiumUnchecked.forEach(cb=>cb.disabled=true);
+
+      const totalUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[type=checkbox]:not(:checked)'));
+      if(selected.length >= totalLimit) totalUnchecked.forEach(cb=>cb.disabled=true);
+    }
     updateSummary();
   }
 
-  // Summary / calc
+  // Summary & calculation
   function updateSummary(){
     const pkg = document.getElementById('package').value;
     const pkgMap = {starter:{price:60,label:'Starter Fun'},mix:{price:95,label:'Party Mix'},ultimate:{price:150,label:'Ultimate Block Party'}};
@@ -518,9 +452,6 @@
     const deliveryFee = (deliveryMode==='deliver')?30:0;
 
     let base = pkg && pkgMap[pkg] ? pkgMap[pkg].price : 0;
-    // No per-game extra charges — package covers X games
-
-    // If package is empty, prevent addons-only with warning? We'll allow but show note
     const total = base + addonsSum + deliveryFee;
 
     document.getElementById('summaryPackage').textContent = (pkgMap[pkg]? pkgMap[pkg].label : '—');
@@ -529,15 +460,13 @@
     document.getElementById('summaryDelivery').textContent = deliveryMode==='deliver'? `$${deliveryFee}` : 'Pickup';
     document.getElementById('summaryTotal').textContent = total.toFixed(2);
 
-    // set hidden fields
+    // hidden fields
     document.getElementById('hiddenGames').value = selectedGames.join(',');
     document.getElementById('hiddenAddons').value = selectedAddons.join(',');
     document.getElementById('hiddenTotal').value = total.toFixed(2);
 
-    // helpful message
     const msg = document.getElementById('formMsg');
-    if(!pkg) msg.textContent = 'Choose a package to get an accurate quote.';
-    else msg.textContent = '';
+    if(!pkg) msg.textContent = 'Choose a package to get an accurate quote.'; else msg.textContent = '';
   }
 
   // Form submit
@@ -555,7 +484,7 @@
       return false;
     }
 
-    // If FORM_ACTION not replaced, show demo summary
+    // Demo mode if FORM_ACTION not replaced
     if(FORM_ACTION.includes('YOUR_FORM_ID')){
       const games = document.getElementById('hiddenGames').value || '(none)';
       const addons = document.getElementById('hiddenAddons').value || '(none)';
@@ -565,12 +494,14 @@
       return false;
     }
 
-    // build FormData and send
+    // Build FormData and send
     const data = new FormData(form);
     fetch(FORM_ACTION, {method:'POST', body: data, headers:{ 'Accept':'application/json' }})
       .then(r=>r.json()).then(j=>{
         alert('Thanks — your request was sent. We will contact you shortly.');
         form.reset();
+        renderGameCheckboxes();
+        renderAddons();
         updateSummary();
       }).catch(err=>{
         console.error(err); alert('Error sending form. Please call/text 717-376-7617.');
@@ -590,10 +521,8 @@
   document.getElementById('package').addEventListener('change', onPackageChange);
   document.getElementById('delivery').addEventListener('change', updateSummary);
 
-  // initial update
+  // initial UI rendered
   updateSummary();
-
 </script>
 </body>
 </html>
-
