@@ -56,6 +56,7 @@
 
   .games-list{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:8px}
   .game-item{display:flex;gap:10px;align-items:center;padding:8px;border-radius:10px;background:linear-gradient(90deg,rgba(11,99,216,0.03),rgba(155,226,29,0.02))}
+  .game-item svg{flex:0 0 auto}
 
   /* Form */
   form#booking{display:grid;gap:12px;margin-top:12px}
@@ -84,6 +85,7 @@
   .btn.secondary{background:transparent;border:2px solid rgba(11,21,48,0.06);color:var(--dark)}
   .center{text-align:center}
   label input{margin-right:8px}
+  .link-blue{color:var(--blue);font-weight:700;text-decoration:none}
 </style>
 </head>
 <body>
@@ -128,7 +130,12 @@
         <div class="pill">24-hour rentals</div>
       </div>
 
-      <div style="margin-top:16px" class="small">Contact: <strong>717-376-7617</strong> • <a href="mailto:playzonepartyrentals@outlook.com" style="color:var(--white)">playzonepartyrentals@outlook.com</a></div>
+      <div style="margin-top:16px" class="small">
+        Contact:
+        <a href="tel:7173767617" class="link-blue">717-376-7617</a>
+        •
+        <a href="mailto:playzonepartyrentals@outlook.com" class="link-blue">playzonepartyrentals@outlook.com</a>
+      </div>
     </div>
 
     <div>
@@ -141,7 +148,7 @@
           </div>
         </div>
         <div style="margin-top:12px">
-          <button class="btn" onclick="document.getElementById('packages').scrollIntoView({behavior:'smooth'})">Start Booking</button>
+          <button class="btn" onclick="composeEmailFromForm()">Start Booking</button>
         </div>
       </div>
     </div>
@@ -234,295 +241,4 @@
 
       <div style="margin-top:8px">
         <label>Choose your games (the UI will enforce package limits):</label>
-        <div id="gameCheckboxes" style="display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-top:6px"></div>
-        <div id="selectionNote" class="small muted" style="margin-top:6px">Select a package to see limits.</div>
-      </div>
-
-      <div style="margin-top:12px">
-        <label>Add-ons</label>
-        <div class="addons" id="addonsList"></div>
-      </div>
-
-      <div style="margin-top:12px;display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap">
-        <div style="flex:1" class="summary">
-          <div class="small muted">Order summary</div>
-          <div style="margin-top:8px">Package: <span id="summaryPackage">—</span></div>
-          <div>Games selected: <span id="summaryGames">0</span></div>
-          <div>Add-ons: <span id="summaryAddons">0</span></div>
-          <div style="margin-top:8px">Delivery: <span id="summaryDelivery">—</span></div>
-          <div style="margin-top:8px" class="total">Estimated total: $<span id="summaryTotal">0</span></div>
-          <div id="formMsg" class="small muted" style="margin-top:8px"></div>
-        </div>
-
-        <div style="min-width:220px;display:flex;flex-direction:column;gap:8px">
-          <button type="submit" class="btn">Request Booking</button>
-          <button type="button" class="btn secondary" onclick="resetForm()">Reset</button>
-        </div>
-      </div>
-
-      <!-- Hidden fields to post -->
-      <input type="hidden" name="games" id="hiddenGames" />
-      <input type="hidden" name="addons" id="hiddenAddons" />
-      <input type="hidden" name="calcTotal" id="hiddenTotal" />
-      <input type="hidden" name="source" value="Website - Playzone Party Rentals" />
-    </form>
-
-    <div class="note" style="margin-top:10px">We provide instructions for different game modes. No referees or supervision provided. Adults must supervise children at all times. Rentals are for 24 hours by default.</div>
-  </section>
-
-  <!-- Logo + icons preview -->
-  <section class="card" style="margin-top:18px">
-    <h2>Game Badges (updated)</h2>
-    <p class="small muted">Premium games now use clear 2-letter badges for quick recognition.</p>
-    <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:10px">
-      <div class="game-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#1785ff"/><text x="20" y="25" font-size="14" text-anchor="middle" fill="#fff" font-weight="800">BM</text></svg><div style="margin-left:8px">Badminton (BM)</div></div>
-
-      <div class="game-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#9be21d"/><text x="20" y="25" font-size="14" text-anchor="middle" fill="#02143a" font-weight="800">AT</text></svg><div style="margin-left:8px">Kid-Friendly Axe Throwing (AT)</div></div>
-
-      <div class="game-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#9be21d"/><text x="20" y="25" font-size="14" text-anchor="middle" fill="#02143a" font-weight="800">NG</text></svg><div style="margin-left:8px">Nerf Guns Kit (NG)</div></div>
-
-      <div class="game-item"><svg width="40" height="40" viewBox="0 0 40 40"><circle cx="20" cy="20" r="18" fill="#9be21d"/><text x="20" y="25" font-size="14" text-anchor="middle" fill="#02143a" font-weight="800">VB</text></svg><div style="margin-left:8px">Volleyball (VB)</div></div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="card" style="margin-top:18px">
-    <h2>FAQ</h2>
-    <div>
-      <strong>How long are rentals?</strong>
-      <p class="small muted">24 hours by default — pick up the following day or choose delivery & pickup service.</p>
-
-      <strong>Do you supervise?</strong>
-      <p class="small muted">No referees or supervision are provided. Adults must supervise children at all times.</p>
-
-      <strong>What about weather?</strong>
-      <p class="small muted">We can reschedule due to severe weather; contact us to arrange alternatives.</p>
-    </div>
-  </section>
-</main>
-
-<footer>
-  © <span id="yr"></span> Playzone Party Rentals — Serving Central PA • Based in Palmyra (17078) • 717-376-7617 • playzonepartyrentals@outlook.com
-</footer>
-
-<!-- ====== Data & JS ====== -->
-<script>
-  document.getElementById('yr').textContent = new Date().getFullYear();
-
-  // Replace with your Formspree or backend endpoint to enable live submissions:
-  const FORM_ACTION = "https://formspree.io/f/YOUR_FORM_ID"; // <-- REPLACE THIS with your form endpoint
-
-  // GAME DEFINITIONS
-  const BASIC_GAMES = [
-    {id:'cornhole', name:'Cornhole'},
-    {id:'kanjam', name:'Kan Jam'},
-    {id:'ringtoss', name:'Ring Toss'},
-    {id:'horseshoes', name:'Horseshoes'},
-    {id:'laddertoss', name:'Ladder Toss'},
-    {id:'giantjenga', name:'Giant Jenga'},
-    {id:'beerpong', name:'Beer Pong'},
-    {id:'spikeball', name:'Spikeball'},
-    {id:'soccer', name:'Soccer'}
-  ];
-  const PREMIUM_GAMES = [
-    {id:'badminton', name:'Badminton', badge:'BM'},
-    {id:'axe', name:'Kid-Friendly Axe Throwing', badge:'AT'},
-    {id:'volleyball', name:'Volleyball', badge:'VB'},
-    {id:'nerf', name:'Nerf Guns Kit', badge:'NG'}
-  ];
-
-  const ADDONS = [
-    {id:'speaker', name:'Bluetooth Speaker + 2 mics', price:20},
-    {id:'bubble', name:'Bubble Machine (w/ solution)', price:20},
-    {id:'slip', name:'Slip & Slide', price:30},
-    {id:'waterballoons', name:'Water Balloon Kit', price:10},
-    {id:'projector', name:'Projector + Outdoor Screen', price:50},
-    {id:'footballs', name:'Footballs (set)', price:5},
-    {id:'frisbees', name:'Frisbees (set)', price:5},
-    {id:'waterguns', name:'Water Guns Kit', price:20},
-    {id:'extranerf', name:'Extra Nerf Gun (each)', price:5},
-    {id:'darts', name:'150 Foam Darts (keep or return)', price:15}
-  ];
-
-  // UI elements
-  const gamesListEl = document.getElementById('gamesList');
-  const gameCheckboxes = document.getElementById('gameCheckboxes');
-  const addonsList = document.getElementById('addonsList');
-
-  function createGameItem(game, isPremium=false){
-    const el = document.createElement('div');
-    el.className = 'game-item';
-    const badge = isPremium ? (game.badge || game.name.split(' ').map(w=>w[0]).join('').slice(0,2)) : game.name.split(' ').map(w=>w[0]).join('').slice(0,2);
-    const fill = isPremium ? '#9be21d' : '#1785ff';
-    const textColor = isPremium ? '#02143a' : '#fff';
-    el.innerHTML = `<svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><circle cx="20" cy="20" r="18" fill="${fill}"/><text x="20" y="25" font-size="12" text-anchor="middle" fill="${textColor}" font-weight="800">${badge}</text></svg><div style="font-weight:700">${game.name}${isPremium? ' • (Premium)':''}</div>`;
-    return el;
-  }
-
-  // Render games gallery
-  BASIC_GAMES.concat(PREMIUM_GAMES).forEach(g=>{
-    const isPremium = PREMIUM_GAMES.some(p=>p.id===g.id);
-    gamesListEl.appendChild(createGameItem(g, isPremium));
-  });
-
-  // Render checkboxes for selection
-  function renderGameCheckboxes(){
-    gameCheckboxes.innerHTML = '';
-    BASIC_GAMES.forEach(g=>{
-      const wrapper = document.createElement('label');
-      wrapper.className = 'addon';
-      wrapper.style.cursor='pointer';
-      wrapper.innerHTML = `<input type="checkbox" value="${g.id}" data-type="basic" /> <div style="flex:1">${g.name}</div>`;
-      gameCheckboxes.appendChild(wrapper);
-    });
-    PREMIUM_GAMES.forEach(g=>{
-      const wrapper = document.createElement('label');
-      wrapper.className = 'addon';
-      wrapper.style.cursor='pointer';
-      wrapper.innerHTML = `<input type="checkbox" value="${g.id}" data-type="premium" /> <div style="flex:1">${g.name} <span style="font-weight:700;color:var(--muted)"> (premium)</span></div>`;
-      gameCheckboxes.appendChild(wrapper);
-    });
-    gameCheckboxes.querySelectorAll('input[type=checkbox]').forEach(cb=>{
-      cb.addEventListener('change', enforceLimits);
-    });
-  }
-
-  // Render addons
-  function renderAddons(){
-    addonsList.innerHTML = '';
-    ADDONS.forEach(a=>{
-      const div = document.createElement('label');
-      div.className = 'addon';
-      div.style.cursor='pointer';
-      div.innerHTML = `<input type="checkbox" value="${a.id}" data-price="${a.price}" /> <div style="flex:1"><strong>${a.name}</strong><div class="small muted">$${a.price}</div></div>`;
-      addonsList.appendChild(div);
-      div.querySelector('input').addEventListener('change', updateSummary);
-    });
-  }
-
-  renderGameCheckboxes();
-  renderAddons();
-
-  // Enforce package limits
-  function onPackageChange(){ enforceLimits(); updateSummary(); }
-
-  function enforceLimits(){
-    const pkg = document.getElementById('package').value;
-    const selected = Array.from(gameCheckboxes.querySelectorAll('input[type=checkbox]:checked')).map(i=>({id:i.value,type:i.dataset.type}));
-    let basicSel = selected.filter(s=>s.type==='basic').length;
-    let premiumSel = selected.filter(s=>s.type==='premium').length;
-
-    let basicLimit=0, premiumLimit=0, totalLimit=0;
-    if(pkg==='starter'){ basicLimit=3; premiumLimit=0; totalLimit=3; }
-    else if(pkg==='mix'){ basicLimit=3; premiumLimit=2; totalLimit=5; }
-    else if(pkg==='ultimate'){ basicLimit=999; premiumLimit=999; totalLimit=10; }
-    else { basicLimit=0; premiumLimit=0; totalLimit=0; }
-
-    const note = document.getElementById('selectionNote');
-    if(!pkg){ note.textContent = 'Select a package to see allowed game counts.'; }
-    else {
-      note.textContent = `Allowed: up to ${totalLimit} total games. (Basic limit: ${basicLimit===999?'no limit':basicLimit}, Premium limit: ${premiumLimit===999?'no limit':premiumLimit})`;
-    }
-
-    // enable all first
-    gameCheckboxes.querySelectorAll('input[type=checkbox]').forEach(cb=>cb.disabled=false);
-
-    // disable unchecked boxes if limits reached
-    if(pkg){
-      const basicUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[data-type=basic]:not(:checked)'));
-      if(basicSel >= basicLimit) basicUnchecked.forEach(cb=>cb.disabled=true);
-
-      const premiumUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[data-type=premium]:not(:checked)'));
-      if(premiumSel >= premiumLimit) premiumUnchecked.forEach(cb=>cb.disabled=true);
-
-      const totalUnchecked = Array.from(gameCheckboxes.querySelectorAll('input[type=checkbox]:not(:checked)'));
-      if(selected.length >= totalLimit) totalUnchecked.forEach(cb=>cb.disabled=true);
-    }
-    updateSummary();
-  }
-
-  // Summary & calculation
-  function updateSummary(){
-    const pkg = document.getElementById('package').value;
-    const pkgMap = {starter:{price:60,label:'Starter Fun'},mix:{price:95,label:'Party Mix'},ultimate:{price:150,label:'Ultimate Block Party'}};
-    const selectedGames = Array.from(gameCheckboxes.querySelectorAll('input[type=checkbox]:checked')).map(i=>i.value);
-    const selectedAddons = Array.from(addonsList.querySelectorAll('input[type=checkbox]:checked')).map(i=>i.value);
-    const addonsSum = Array.from(addonsList.querySelectorAll('input[type=checkbox]:checked')).reduce((s,i)=>s+Number(i.dataset.price||0),0);
-    const deliveryMode = document.getElementById('delivery').value;
-    const deliveryFee = (deliveryMode==='deliver')?30:0;
-
-    let base = pkg && pkgMap[pkg] ? pkgMap[pkg].price : 0;
-    const total = base + addonsSum + deliveryFee;
-
-    document.getElementById('summaryPackage').textContent = (pkgMap[pkg]? pkgMap[pkg].label : '—');
-    document.getElementById('summaryGames').textContent = selectedGames.length;
-    document.getElementById('summaryAddons').textContent = selectedAddons.length;
-    document.getElementById('summaryDelivery').textContent = deliveryMode==='deliver'? `$${deliveryFee}` : 'Pickup';
-    document.getElementById('summaryTotal').textContent = total.toFixed(2);
-
-    // hidden fields
-    document.getElementById('hiddenGames').value = selectedGames.join(',');
-    document.getElementById('hiddenAddons').value = selectedAddons.join(',');
-    document.getElementById('hiddenTotal').value = total.toFixed(2);
-
-    const msg = document.getElementById('formMsg');
-    if(!pkg) msg.textContent = 'Choose a package to get an accurate quote.'; else msg.textContent = '';
-  }
-
-  // Form submit
-  function handleSubmit(e){
-    e.preventDefault();
-    const form = e.target;
-    const name = form.name.value.trim();
-    const phone = form.phone.value.trim();
-    const email = form.email.value.trim();
-    const date = form.date.value;
-    const pkg = form.package.value;
-
-    if(!name || !phone || !email || !date || !pkg){
-      alert('Please complete required fields: name, phone, email, date, package.');
-      return false;
-    }
-
-    // Demo mode if FORM_ACTION not replaced
-    if(FORM_ACTION.includes('YOUR_FORM_ID')){
-      const games = document.getElementById('hiddenGames').value || '(none)';
-      const addons = document.getElementById('hiddenAddons').value || '(none)';
-      const total = document.getElementById('hiddenTotal').value || '0.00';
-      const summary = `Demo booking (form not sent)\nName: ${name}\nPhone: ${phone}\nEmail: ${email}\nDate: ${date}\nPackage: ${pkg}\nGames: ${games}\nAddons: ${addons}\nTotal: $${total}`;
-      alert(summary + '\n\nReplace FORM_ACTION with your Formspree endpoint to enable live form submission.');
-      return false;
-    }
-
-    // Build FormData and send
-    const data = new FormData(form);
-    fetch(FORM_ACTION, {method:'POST', body: data, headers:{ 'Accept':'application/json' }})
-      .then(r=>r.json()).then(j=>{
-        alert('Thanks — your request was sent. We will contact you shortly.');
-        form.reset();
-        renderGameCheckboxes();
-        renderAddons();
-        updateSummary();
-      }).catch(err=>{
-        console.error(err); alert('Error sending form. Please call/text 717-376-7617.');
-      });
-
-    return false;
-  }
-
-  function resetForm(){
-    document.getElementById('booking').reset();
-    renderGameCheckboxes();
-    renderAddons();
-    updateSummary();
-  }
-
-  // attach events
-  document.getElementById('package').addEventListener('change', onPackageChange);
-  document.getElementById('delivery').addEventListener('change', updateSummary);
-
-  // initial UI rendered
-  updateSummary();
-</script>
-</body>
-</html>
+        <div id="gameCheckboxes" style="
