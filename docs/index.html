@@ -151,7 +151,7 @@
     .pkg-price{font-weight:900;font-size:1.2rem;margin-top:4px}
     .pkg-note{font-size:.9rem;color:var(--muted);margin-top:4px}
 
-    /* GAMES GRID */
+    /* GAMES GRID (display section) */
     .games-grid{
       display:grid;
       grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
@@ -167,7 +167,6 @@
       background:linear-gradient(90deg,rgba(11,99,216,0.03),#fff);
     }
 
-    /* PERFECT CIRCLES */
     .game-icon{
       width:38px;
       height:38px;
@@ -443,7 +442,7 @@
     </p>
   </section>
 
-  <!-- GAMES -->
+  <!-- GAMES DISPLAY -->
   <section id="games" class="card">
     <h2 class="section-title">Games</h2>
     <p class="muted">Choose any games you want. Adults must supervise children at all times.</p>
@@ -451,7 +450,6 @@
     <h3 style="margin-bottom:6px;">Basic games</h3>
     <div class="games-grid">
       <div class="game-item"><div class="game-icon basic">C</div><div class="game-text">Cornhole</div></div>
-      <!-- FIXED LINE BELOW -->
       <div class="game-item"><div class="game-icon basic">KJ</div><div class="game-text">Kan Jam</div></div>
       <div class="game-item"><div class="game-icon basic">RT</div><div class="game-text">Ring Toss</div></div>
       <div class="game-item"><div class="game-icon basic">H</div><div class="game-text">Horseshoes</div></div>
@@ -499,8 +497,8 @@
       <div class="addon-item"><span class="addon-name">Slip and Slide</span><span class="addon-price">$30</span></div>
       <div class="addon-item"><span class="addon-name">Water balloon kit</span><span class="addon-price">$10</span></div>
       <div class="addon-item"><span class="addon-name">Projector with outdoor screen</span><span class="addon-price">$50</span></div>
-      <div class="addon-item"><span class="addon-name">Footballs (set)</span><span class="addon-price">$5</span></div>
-      <div class="addon-item"><span class="addon-name">Frisbees (set)</span><span class="addon-price">$5</span></div>
+      <div class="addon-item"><span class="addon-name">Football</span><span class="addon-price">$5</span></div>
+      <div class="addon-item"><span class="addon-name">Boomerang</span><span class="addon-price">$5</span></div>
       <div class="addon-item"><span class="addon-name">Water guns kit</span><span class="addon-price">$20</span></div>
       <div class="addon-item"><span class="addon-name">Extra Nerf gun (each)</span><span class="addon-price">$5</span></div>
       <div class="addon-item"><span class="addon-name">100 foam darts (keep or return)</span><span class="addon-price">$10</span></div>
@@ -545,6 +543,7 @@
         <div class="field">
           <label>Games you’d like</label>
           <div class="choices-grid" id="gamesChoices"></div>
+          <div id="gamesLimitMsg" class="muted" style="margin-top:4px;"></div>
         </div>
 
         <div class="field">
@@ -576,7 +575,7 @@
           <div class="summary-box" style="flex:1">
             <div class="muted">Order summary</div>
             <div>Package: <strong id="summaryPackage">—</strong></div>
-            <div>Games: <strong id="summaryGamessss">0</strong></div>
+            <div>Games: <strong id="summaryGames">0</strong></div>
             <div>Add-ons: <strong id="summaryAddons">0</strong></div>
             <div>Delivery: <strong id="summaryDelivery">Pickup</strong></div>
             <div class="summary-total">Estimated: $<span id="summaryTotal">0.00</span></div>
@@ -609,20 +608,21 @@ document.getElementById("year").textContent = new Date().getFullYear();
 
 const FORM_ACTION = "https://formspree.io/f/xjknyabk";
 
+/* Games with type so we can enforce package rules */
 const GAMES = [
-  {id:'cornhole',label:'Cornhole'},
-  {id:'kanjam',label:'Kan Jam'},
-  {id:'ringtoss',label:'Ringock'},
-  {id:'horseshoes',label:'Horseshoes'},
-  {id:'laddertoss',label:'Ladder Toss'},
-  {id:'giantjenga',label:'Giant Jenga'},
-  {id:'beerpong',label:'Beer Pong'},
-  {id:'spikeball',label:'Spikeball'},
-  {id:'soccer',label:'Soccer'},
-  {id:'badminton',label:'Badminton'},
-  {id:'axe',label:'Kid-friendly Axe Throwing'},
-  {id:'volleyball',label:'Volleyball'},
-  {id:'nerf',label:'Nerf Guns Kit — 10 guns + 300 darts + eye protection'},
+  {id:'cornhole', label:'Cornhole', type:'basic'},
+  {id:'kanjam', label:'Kan Jam', type:'basic'},
+  {id:'ringtoss', label:'Ring Toss', type:'basic'},
+  {id:'horseshoes', label:'Horseshoes', type:'basic'},
+  {id:'laddertoss', label:'Ladder Toss', type:'basic'},
+  {id:'giantjenga', label:'Giant Jenga', type:'basic'},
+  {id:'beerpong', label:'Beer Pong', type:'basic'},
+  {id:'spikeball', label:'Spikeball', type:'basic'},
+  {id:'soccer', label:'Soccer', type:'basic'},
+  {id:'badminton', label:'Badminton', type:'premium'},
+  {id:'axe', label:'Kid-friendly Axe Throwing', type:'premium'},
+  {id:'volleyball', label:'Volleyball', type:'premium'},
+  {id:'nerf', label:'Nerf Guns Kit — 10 guns + 300 darts + eye protection', type:'premium'},
 ];
 
 const ADDONS = [
@@ -631,8 +631,8 @@ const ADDONS = [
   {id:'slip',label:'Slip and Slide',price:30},
   {id:'balloons',label:'Water balloon kit',price:10},
   {id:'projector',label:'Projector with outdoor screen',price:50},
-  {id:'footballs',label:'Footballs (set)',price:5},
-  {id:'frisbees',label:'Frisbees (set)',price:5},
+  {id:'football',label:'Football',price:5},
+  {id:'boomerang',label:'Boomerang',price:5},
   {id:'waterguns',label:'Water guns kit',price:20},
   {id:'extranerf',label:'Extra Nerf gun (each)',price:5},
   {id:'darts',label:'100 foam darts (keep or return)',price:10},
@@ -646,6 +646,7 @@ const PRICES = {
 
 const gamesChoices = document.getElementById("gamesChoices");
 const addonsChoices = document.getElementById("addonsChoices");
+const gamesLimitMsg = document.getElementById("gamesLimitMsg");
 
 function renderChoices(){
   gamesChoices.innerHTML="";
@@ -674,13 +675,17 @@ function renderChoices(){
   });
 }
 
-function getSelectedGames(){
-  const out=[];
+function getSelectedGameObjects(){
+  const selectedIds=[];
   gamesChoices.querySelectorAll("input:checked").forEach(cb=>{
-    const obj=GAMES.find(x=>x.id===cb.value);
-    if(obj) out.push(obj.label);
+    selectedIds.push(cb.value);
   });
-  return out;
+  return GAMES.filter(g=>selectedIds.includes(g.id));
+}
+
+function getSelectedGamesLabels(){
+  const selected = getSelectedGameObjects();
+  return selected.map(g=>g.label);
 }
 
 function getSelectedAddons(){
@@ -693,6 +698,7 @@ function getSelectedAddons(){
 }
 
 const summaryPackage=document.getElementById("summaryPackage");
+const summaryGames=document.getElementById("summaryGames");
 const summaryAddons=document.getElementById("summaryAddons");
 const summaryDelivery=document.getElementById("summaryDelivery");
 const summaryTotal=document.getElementById("summaryTotal");
@@ -702,11 +708,97 @@ const hiddenGames=document.getElementById("hiddenGames");
 const hiddenAddons=document.getElementById("hiddenAddons");
 const hiddenTotal=document.getElementById("hiddenTotal");
 
+function getPackageLimits(pkg){
+  // defaults when no package selected
+  let limits = {
+    maxBasic: Infinity,
+    maxPremium: Infinity,
+    maxTotal: Infinity,
+    text: "Choose a package to see game limits."
+  };
+
+  if(pkg === "Starter Fun"){
+    limits = {
+      maxBasic: 3,
+      maxPremium: 0,
+      maxTotal: 3,
+      text: "Starter Fun: up to 3 basic games (no premium games)."
+    };
+  } else if(pkg === "Party Mix"){
+    limits = {
+      maxBasic: 3,
+      maxPremium: 2,
+      maxTotal: 5,
+      text: "Party Mix: up to 5 total games (max 3 basic + 2 premium)."
+    };
+  } else if(pkg === "Ultimate Block Party"){
+    limits = {
+      maxBasic: Infinity,
+      maxPremium: Infinity,
+      maxTotal: 10,
+      text: "Ultimate Block Party: up to 10 games (any mix of basic and premium)."
+    };
+  }
+
+  return limits;
+}
+
+function applyPackageLimits(pkg, selectedGames){
+  const limits = getPackageLimits(pkg);
+
+  const basicCount = selectedGames.filter(g=>g.type==="basic").length;
+  const premiumCount = selectedGames.filter(g=>g.type==="premium").length;
+  const totalCount = selectedGames.length;
+
+  // Update helper text
+  let msg = limits.text;
+  if(pkg && totalCount >= limits.maxTotal){
+    msg += " You have reached the maximum number of games for this package.";
+  } else if(pkg && (basicCount >= limits.maxBasic || premiumCount >= limits.maxPremium)){
+    msg += " You have reached one of the game limits.";
+  }
+  gamesLimitMsg.textContent = msg;
+
+  // Enable/disable checkboxes based on limits
+  gamesChoices.querySelectorAll("input[type=checkbox]").forEach(cb=>{
+    const game = GAMES.find(g=>g.id===cb.value);
+    if(!game) return;
+
+    // Selected games are always allowed
+    if(cb.checked){
+      cb.disabled = false;
+      return;
+    }
+
+    // If no package, don't block anything
+    if(!pkg){
+      cb.disabled = false;
+      return;
+    }
+
+    // Now check if selecting this game would break limits
+    let wouldBasic = basicCount + (game.type==="basic" ? 1 : 0);
+    let wouldPremium = premiumCount + (game.type==="premium" ? 1 : 0);
+    let wouldTotal = totalCount + 1;
+
+    if(
+      wouldTotal > limits.maxTotal ||
+      wouldBasic > limits.maxBasic ||
+      wouldPremium > limits.maxPremium
+    ){
+      cb.disabled = true;
+    }else{
+      cb.disabled = false;
+    }
+  });
+}
+
 function updateSummary(){
   const pkg=document.getElementById("packageSelect").value;
   const delivery=document.getElementById("delivery").value;
 
-  const games=getSelectedGames();
+  const selectedGameObjs = getSelectedGameObjects();
+  const gamesLabels = selectedGameObjs.map(g=>g.label);
   const addons=getSelectedAddons();
   const addonTotal=addons.reduce((s,a)=>s+a.price,0);
   const deliveryFee=(delivery==="delivery"?30:0);
@@ -715,15 +807,19 @@ function updateSummary(){
   const total=base+addonTotal+deliveryFee;
 
   summaryPackage.textContent=pkg||"—";
+  summaryGames.textContent = selectedGameObjs.length;
   summaryAddons.textContent=addons.length;
   summaryDelivery.textContent=(delivery==="delivery"?"Delivery (+$30)":"Pickup");
   summaryTotal.textContent=total.toFixed(2);
 
-  hiddenGames.value=games.join(", ");
+  hiddenGames.value=gamesLabels.join(", ");
   hiddenAddons.value=addons.map(a=>`${a.label} ($${a.price})`).join(", ");
   hiddenTotal.value=total.toFixed(2);
 
   formMsg.textContent=pkg?"":"Choose a package to see your estimate.";
+
+  // Apply package rules (limits) every time things change
+  applyPackageLimits(pkg, selectedGameObjs);
 }
 
 function scrollToBooking(){ document.getElementById("booking").scrollIntoView({behavior:"smooth"}); }
@@ -745,6 +841,10 @@ document.getElementById("bookingForm").addEventListener("submit",function(e){
     alert("There was an issue submitting your form. Try again or email playzonepartyrentals@outlook.com.");
   });
 });
+
+// Recalculate when package or delivery changes
+document.getElementById("packageSelect").addEventListener("change", updateSummary);
+document.getElementById("delivery").addEventListener("change", updateSummary);
 
 renderChoices();
 updateSummary();
